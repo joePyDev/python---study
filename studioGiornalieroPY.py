@@ -1,31 +1,87 @@
 
-distance_mi = 0
-is_raining = False
-has_bike = False
-has_car = False
-has_ride_share_app = False
+# ITERAZIONE
 
-if not distance_mi :
-    print("False")
+# aggiornamento variabili:
+    
+X = 0
+X = X + 1
 
 
-elif distance_mi <= 1:
-    if is_raining == False:
-        print("True")
-    else:
-        print("False")
-        
-elif distance_mi > 1 and distance_mi <=  6:
-    if has_bike and not is_raining:
-        print("True")
-    else:
-        print("False")
-        
-elif distance_mi > 6 and has_ride_share_app:
-    print("True")        
-        
-elif distance_mi > 6 and has_car:
-    print("True")
-     
-elif distance_mi > 6 and not has_car and not has_ride_share_app:
-        print("False")
+# while
+
+n = 5 
+while n > 0:
+    print(n)
+    n = n - 1
+print("decollo")
+
+    
+
+# infinito!!
+"""
+n = 10 
+while True:
+    print(n,end=" ")
+    n = n -1
+print("Done!")
+"""    
+
+
+
+while True:
+    line = input("> ")
+    if line == "done":
+        break
+    print(line)
+print("Done!!")    
+
+
+
+# continue
+while True:
+    line = input("> ")
+    if line[0] == "#":
+        continue
+    if line == "done":
+        break
+    print(line)
+print("Done!")    
+
+
+
+# FOR
+
+friends = ["joseph", "Glenn","Sally"]
+for friend in friends:
+    print("Happy new year:",friend)
+    
+print("Done!")    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
