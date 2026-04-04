@@ -93,7 +93,15 @@ print("Smallest:",smallest)
 
 
 
-
+def min(values):
+    smallest = None
+    for value in values:
+        if smallest is None or value < smallest:
+            smallest = value
+    return smallest        
+        
+val = [1,2,3,4,5,6,7,8,9]
+print("minimo:",min(val))
 
 
 
