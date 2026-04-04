@@ -188,10 +188,77 @@ if b_ool == b_oool:
     print("vero")
     
     
-print(dir(str))    
+ 
     
 
+#----------------------------------
 
+# metodi delle stringhe:
     
+A = " sono una stringaAAA "   
+print(A) 
+ 
+    
+A = A.upper()
+print(A) 
+    
+A = A.lower()
+print(A) 
+
+A = A.strip()
+print(A) 
+
+A = A.replace("sono","ero")
+print(A) 
+
+A = A.split()
+print(A) 
+
+
+A = " ".join(A)
+print(A)
+
+
+if A.startswith("ero"):
+    print(A,"startsWith")
+
+if A.endswith(("a")):
+    print(A,"endsW")
+    
+A = A.find("aa")
+print(type(A))
+    
+A = " sono una stringaAAA "   
+
+A = A.count("AA")
+print(A)
+
+A = "sono una stringaAAA "   
+
+A = A.capitalize()
+print(A)
+
+A = A.isupper()
+print(A)
+
+A = "sono una stringaAAA "   
+A = A.islower()
+print(A)
+
+
+A = "sono una stringaAAA "   
+A = A.title()
+print(A)
+
+
+A = "sono una stringaAAA "   
+
+A = A.maketrans("abc","123")
+print(A)
+
+
+
+
+
 
 
