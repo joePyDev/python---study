@@ -107,7 +107,91 @@ print("minimo:",min(val))
 
 
 
+# Stringhe
+
+fruit = "banana"
+letter = fruit[1]
+print(letter)
 
 
+
+# len()
+
+fruit = "banana"
+print(len(fruit))
+
+lenght = len(fruit)
+
+last = fruit[lenght-1]
+
+print(last)
+
+A = fruit[-1]
+
+B = fruit[-2]
+
+print(A,B)
+
+
+# scorrere una stringa con un ciclo
+
+index = 0
+print("begin")
+while index < len(fruit):
+    letter = fruit[index]
+    print(letter)
+    index = index +1
+print("end")
+
+
+# for
+
+for char in fruit:
+    print(char)
+    
+    
+# segmenti di stringhe
+
+s = "Monty Python"
+print(s[0:5],s[6:12])
+
+print("!!",fruit[1:1],"!!")
+    
+    
+# immutabili
+
+greeting = "Hello word"
+new_greeting = greeting[4:8]
+print(new_greeting)
+    
+
+
+# cicli e conteggi
+word = "Banana"
+count = 0
+for letter in word:
+    if letter == "a":
+        count = count +1
+print(count)        
+        
+        
+# operatore IN
+
+b_ool = "a" in word
+b_oool = "seed"in word
+
+print(b_ool,b_oool)
+    
+    
+# comparazione stringhe
+if b_ool == b_oool:
+    print("vero")
+    
+    
+print(dir(str))    
+    
+
+
+    
 
 
