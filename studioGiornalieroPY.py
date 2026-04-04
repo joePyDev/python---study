@@ -70,7 +70,13 @@ for interval in [3,41,12,9,74,15]:
 print("Count: ",count)    
 
 
+total = 0
+for intervar in [3,41,12,9,74,15]:
+    total = total + intervar
+print(total)    
 
+
+# cicli di massimo e minimo
 
 
 
