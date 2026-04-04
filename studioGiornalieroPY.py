@@ -1,4 +1,4 @@
-
+"""
 # ITERAZIONE
 
 # aggiornamento variabili:
@@ -16,15 +16,6 @@ while n > 0:
 print("decollo")
 
     
-
-# infinito!!
-"""
-n = 10 
-while True:
-    print(n,end=" ")
-    n = n -1
-print("Done!")
-"""    
 
 
 
@@ -60,7 +51,6 @@ print("Done!")
 
 
 
-
 # Cicli per contare e sommare
 
 count = 0 
@@ -76,10 +66,18 @@ for intervar in [3,41,12,9,74,15]:
 print(total)    
 
 
+"""
+
 # cicli di massimo e minimo
 
-
-
+largest = None
+print("Before:",largest)
+for intervar in [3,41,12,9,74,15]:
+    if largest is None or intervar > largest:
+        largest = intervar
+    print("Loop:",intervar,largest)
+print("largest:",largest)    
+        
 
 
 
