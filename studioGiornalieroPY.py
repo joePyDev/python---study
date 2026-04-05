@@ -66,7 +66,6 @@ for intervar in [3,41,12,9,74,15]:
 print(total)    
 
 
-"""
 
 # cicli di massimo e minimo
 
@@ -255,6 +254,103 @@ A = "sono una stringaAAA "
 
 A = A.maketrans("abc","123")
 print(A)
+
+
+
+#-------------------------------------
+
+
+# operazioni matematiche
+
+
+
+int_1 = 56
+int_2 = 12
+
+print( int_1 + int_2 )
+
+
+float_1 = 5.4
+float_2 = 12.0
+
+print(float_1 + float_2)
+
+
+print(int_1 + float_1)
+
+
+
+print(int_1 % int_2)
+
+print(int_1 / int_2)
+
+print(int_1 // int_2)
+
+print(int_1 ** int_2)
+
+
+
+A = float(int_1)
+print(A)
+
+
+B = int(float_1)
+
+print(B)
+
+
+C = round(float_2)
+print(C)
+
+
+D = abs(-float_2)
+print(D)
+
+
+print(bin(50),oct(50),hex(50),pow(50,2))
+
+
+
+"""
+
+# assegnazioni aumentate
+
+my_var = 10
+my_var += 5
+
+print(my_var)
+
+
+count = 14
+count -= 3
+print(count)
+
+
+product = 65
+product *= 7
+print(product)
+
+
+divisione = 100
+divisione /= 4
+print(divisione)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
