@@ -337,11 +337,90 @@ print(divisione)
 
 
 
+# funzioni
+
+def get_sum(num_1,num_2):
+    return num_1 + num_2
+
+result = get_sum(3,4)
+print(result)
+
+
+
+# Se una funzione non restituisce esplicitamente un valore,
+# il valore di ritorno predefinito è None:
+    
+    
+def greet():
+    print('hello') 
+
+result = greet() # hello
+print(result) # None
+
+
+# specificare parametri 
+
+def get_sum2(num_1 , num_2=5):
+    return num_1 + num_2
+
+total = get_sum2(5)
+
+print(total)
+
+
+
+# ambito di visibilita variabili
+
+
+# local 
+def my_func():
+    num = 10
+    print(num)
+
+
+# delimitazione
+def outer_func():
+    msg = "hello there"
+    
+    def inner_func():
+        print(msg)
+        
+    inner_func()
+
+    
+A = outer_func()       
 
 
 
 
+# globale
+tax = 0.70
 
+def get_total(subtotal):
+    total = subtotal + (subtotal * tax)
+    return total
+
+print(get_total(100))
+
+
+# predefinito
+print(str(45)) # '45'
+print(type(3.14)) # <class 'float'>
+print(isinstance(3, str)) # False
+
+
+
+# operatori di comparazione
+print(3 == 4)
+print(3 != 4)
+print(3 > 4)
+print(3 < 4)
+print( 3 >= 4)
+print(3 <= 4)
+
+
+
+# condizionali
 
 
 
