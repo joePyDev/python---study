@@ -423,10 +423,70 @@ print(3 <= 4)
 # condizionali
 
 
+age = 18
+if age >= 18:
+    print("sei maggiorenne")
+elif age >= 13:
+    print("sei un ragazzo")
+else:
+    print("sei un bambino")
+    
+
+
+# if annidiato
+
+is_citizen = False
+age = 18
+
+if is_citizen:
+    if age >= 18:
+        print("puoi votare")
+else:
+    print("non puoi votare")        
+
+
+
+print(bool(False)) # False
+print(bool(0))  # False
+print(bool('')) # False
+
+print(bool(True)) # True
+print(bool(1)) # True
+print(bool('Hello')) # True
+
+
+# Boolean Operators and Short-circuiting 
+print(True and age) # 18
+
+print(True or age) # True
+
+
+
+print(not '') # True, because empty string is falsy
+print(not 'Hello') # False, because non-empty string is truthy
+print(not 0) # True, because 0 is falsy
+print(not 1) # False, because 1 is truthy
+print(not False) # True, because False is falsy
+print(not True) # False, because True is truthy
+
+
+
+is_admin = False
+
+if not is_admin:
+    print("Accesso negato per non amministratore")
+else:
+    print("accesso consentito")    
 
 
 
 
+
+developer = 'Naomi'
+
+result = developer.endswith('N') # ?
+
+print(result)
 
 
 
