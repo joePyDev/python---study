@@ -16,16 +16,12 @@ while n > 0:
 print("decollo")
 
     
-
-
-
 while True:
     line = input("> ")
     if line == "done":
         break
     print(line)
 print("Done!!")    
-
 
 
 # continue
@@ -39,7 +35,6 @@ while True:
 print("Done!")    
 
 
-
 # FOR
 
 friends = ["joseph", "Glenn","Sally"]
@@ -47,8 +42,6 @@ for friend in friends:
     print("Happy new year:",friend)
     
 print("Done!")    
-
-
 
 
 # Cicli per contare e sommare
@@ -78,8 +71,6 @@ for intervar in [3,41,12,9,74,15]:
 print("largest:",largest)    
 
 
-
-
 smallest = None
 print("Before:",smallest)
 for intervar in [3,41,12,9,74,15]:
@@ -87,8 +78,6 @@ for intervar in [3,41,12,9,74,15]:
         smallest = intervar
     print("Loop:",intervar,smallest)    
 print("Smallest:",smallest)
-
-
 
 
 
@@ -101,8 +90,6 @@ def min(values):
         
 val = [1,2,3,4,5,6,7,8,9]
 print("minimo:",min(val))
-
-
 
 
 
@@ -311,8 +298,6 @@ print(bin(50),oct(50),hex(50),pow(50,2))
 
 
 
-"""
-
 # assegnazioni aumentate
 
 my_var = 10
@@ -487,6 +472,100 @@ developer = 'Naomi'
 result = developer.endswith('N') # ?
 
 print(result)
+
+
+
+"""
+
+
+
+
+
+
+#In Python, gli operatori and e or non restituiscono necessariamente
+#un valore booleano (True o False), ma restituiscono 
+#l'ultimo valore valutato durante il processo.
+
+
+# cortocircuito and
+# and: Restituisce il primo valore Falso che incontra; se sono tutti veri, restituisce l'ultimo valore.
+print( False and 0) # false
+print( True and 0) # 0
+
+
+# cortocorcuito or 
+# or: Restituisce il primo valore Vero che incontra; se sono tutti falsi, restituisce l'ultimo valore.
+print( False or 0) # 0
+print( "True" or 0) # True
+
+
+
+
+utente = ""
+
+# Se 'utente' è None o vuoto, usa "Ospite"
+nome = utente or "Ospite"
+
+print(nome)
+
+
+
+
+numeratore = 2
+denominatore = 0
+
+# Evita un errore di divisione per zero
+risultato = (denominatore != 0) and (numeratore / denominatore)
+
+print((risultato))
+
+
+
+# esercizi:
+X = [] or [1,2,3,4]
+
+print(X)    
+
+
+print(True and 3 > 5)
+
+
+print(None or 0 or "Fine")
+
+
+print("mela" and "pera")
+
+
+
+
+risultato = 50 or 0
+
+print(risultato)
+
+
+print(bool("" and 10))
+
+print([] or {} or "Dato")
+
+print(19 < 5 or "Almeno uno è vero")
+
+
+risultato = (100 > 0) and (200 > 100)
+
+
+bool(0 or None)
+
+
+Y = 0.0 or 0 or False
+ 
+
+
+
+
+
+
+
+
 
 
 
