@@ -66,15 +66,53 @@ print(misto[2][0])
 
 #  decompressione dei valori di una lista:
 nuova_lista = ["Alice",44,True]
-
 nome,eta,disponibilita = nuova_lista    
-    
 print(nome,eta,disponibilita)
     
     
     
+# recuperare elementi in una lista con operatore *
+
+name, *resto = nuova_lista
+
+print(name)
+print(resto)
+
+
+# Se il numero di variabili sul lato sinistro
+# dell'operatore di assegnazione non corrisponde al 
+# numero totale di elementi nell'elenco, allora
+# riceverai un ValueError:
+
+
+
+
+# operatore slice ci permette di accedere a porzioni di lista:
+dessert = ["biscotti","gelato","panna","fragole","cioccolato"]
+print(dessert[0:3])
+
+
+
+# incremento di passo sliceing:
     
-    
+numeri = [1,2,3,4,5,6,7,8,9]
+
+print(numeri[::2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     
