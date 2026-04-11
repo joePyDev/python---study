@@ -48,3 +48,4 @@ print(my_list)
 numeri = [2,54,6,44,23,45,86,23,9,87,54]
 numeri.sort()
 print(numeri)
+

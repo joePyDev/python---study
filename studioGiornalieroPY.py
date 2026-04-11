@@ -1,81 +1,66 @@
 """
-import sys
-
-# lavorare con i file
-
-fname = input("inserisci il nome del file : ")
-try:
-    fhandle = open(fname)
-except:
-    print(" il file non può essere aperto")
-    sys.exit()   
+# metodi delle lista:
     
-count = 0
-for line in fhandle:
-    if line.startswith("From"):
-        count = count + 1
-print(f"corispondenza trovata {count} volte nel file {fname} ")        
+T = [1,2,3,4,5,6,7,8,9]
+T.append("fine lista")
+print(T)
+
+
+
+T1 = ["a","b","c","d"]
+my_copy = T1.copy()
+T2 = [1,2,3]
+T1.extend(T2)
+print(T1,my_copy)
+
+
+
+t = ["a","b","c"]
+XX = t.pop()
+print(t , XX)
+
+
+T = [1,2,3,4,5,6,7,8,9]
+del T[1:5]
+print(T)
+
+
+T = [1,2,3,4,5,6,7,8,9]
+A = T.remove(5)
+print(A)
 
 """
 
+# liste e funzioni integrate
+
+num = [1,2,3,4,5,6,7,8,9]
+print(len(num))
+
+print(max(num))
+
+print(min(num))
+
+print(sum(num))
+
+print(sum(num) / len(num))
 
 
-fout = open(r"C:\Users\gioel\OneDrive\Desktop\nuovo_file.txt","w")
-print(fout)
-
-line = "contenuto da scrivere\n"
-fout.write(line)
-fout.write("1234.\n")
-fout.write("1234..\n")
-fout.write("1234...\n")
-fout.write("1234....\n")
-
-fout.close()
-
-
-
-#-------------------------------- liste
-
-vuoto = []
-
-pieno = [1,"stringa",False]
-
-
-# le liste sono mutabili
-print(id(pieno))
-
-
-# paretesi a sinistra, modifica del elemento:
-pieno[1] = "formaggio"
-print(id(pieno))
-
-A = pieno
-# ATTENZIONE!! 
-A.append("11111")
-
-print(A)
-print(id(pieno))
-print(pieno)
+total = 0 
+count= 0
+while True:
+    inp = input("inserisci un numero")
+    if inp == "done": break
 
 
 
 
-# scorrere un elenco: 
-
-for contenuto in pieno:
-    print(contenuto)
 
 
 
 
-numeri = [10,15,20,25]
-myList = []
 
 
-for i in numeri:
-    myList.append(i)        
 
-print(myList)
 
 
 
