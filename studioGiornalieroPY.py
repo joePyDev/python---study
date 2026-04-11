@@ -29,7 +29,7 @@ T = [1,2,3,4,5,6,7,8,9]
 A = T.remove(5)
 print(A)
 
-"""
+
 
 # liste e funzioni integrate
 
@@ -50,26 +50,73 @@ count= 0
 while True:
     inp = input("inserisci un numero")
     if inp == "done": break
+    value = float(inp)
+    total = total + value
+    count = count + 1
+
+average = total / count
+print("Media: ", average)    
+
+
+
+
+numlist = list()
+
+while (True):
+    inp = input("inserisci un numero") 
+    if inp == "done": break
+    value = float(inp)
+    numlist.append(value)
+    
+average = sum(numlist) / len(numlist)
+
+print(average)    
 
 
 
 
 
 
+S = "spam"
+T = list(S)
+print(T)
+
+
+S = "sono una lista di parole"
+T = S.split()
+print(T[2])
+
+
+
+S = "spam-spam-spam-spam"
+delimiter = "-"
+S = S.split(delimiter)
+
+print(S)
+
+
+T = ["spinning","for","aaa","popp"]
+delimit = "...."
+newT = delimit.join(T)
+
+print(newT)
 
 
 
 
+help(str.split)
+
+"""
 
 
-
-
-
-
-
-
-
-
+fhand = input("inserisci il percorso file")
+with open(fhand) as myFile:
+    for line in myFile:
+        line = line.rstrip()
+        if not line.startswith(("From")): continue
+        words = line.split()
+        if len(words) > 3:
+            print(words[2])
 
 
 
