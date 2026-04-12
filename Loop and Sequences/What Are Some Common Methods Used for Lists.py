@@ -49,3 +49,34 @@ numeri = [2,54,6,44,23,45,86,23,9,87,54]
 numeri.sort()
 print(numeri)
 
+
+# sorted() restituisce un elenco ordinato dell'oggetto iterabile specificato.
+
+numbers = [19,2,35,1,67,41]
+sorted_numbers = sorted(numbers)
+print(sorted_numbers)
+
+
+# Il reverse() inverte l'ordine di ordinamento degli elementi.
+numeri = [1,2,3,4,5,6]
+numeri.reverse()
+print(numeri)
+
+
+# Il index() restituisce la posizione alla prima occorrenza del valore specificato.
+
+frutta = ["mela","pera","limone","uva"]
+indice = frutta.index("pera")
+print(indice)
+
+
+
+
+
+
+
+
+
+
+
+
