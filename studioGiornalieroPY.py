@@ -156,7 +156,7 @@ print(C is D)
 
 
 # alias
-# Se a si riferisce ad un oggetto e assegni b = a, allora entrambe le variabili si
+# Se A si riferisce ad un oggetto e assegni B = A , allora entrambe le variabili si
 # riferiscono allo stesso oggetto:
 
 A = [1,2,3]
@@ -184,6 +184,38 @@ for i in range(len(prezzi_scontati)):
     print("Scontato:",prezzi_scontati[i] , "e prezzo originale" , prezzi_originali[i])
 
 print(prezzi_originali) # [100, 200, 300] -> SALVO!
+
+
+
+
+# liste come argomenti:
+    
+def delete_head(t):
+    del t[0]
+
+lettere = ["a","b","c"] 
+print(id(lettere))
+print(len(lettere))
+
+
+delete_head(lettere)
+print(id(lettere))
+
+print(len(lettere))
+
+
+
+t1 = [1,2]
+t2 = t1.append(3)
+print(t1)
+print(t2) 
+
+
+t3 = t1 + [3]
+print(t3)
+
+
+
 
 
 
