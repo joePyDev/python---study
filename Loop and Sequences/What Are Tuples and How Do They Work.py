@@ -38,3 +38,40 @@ print(nome)
 print(professione)
 print(eta)
 
+# raccogliere elementi rimanenti:
+
+valori = (1,2,3,4,5,6,7,8)
+valori2 , *resto = valori
+
+print(valori2 , resto)
+
+
+# estrarre elementi con slicing:
+cibi = ("mela","pollo","maiale","limone")
+print(cibi[:2])
+
+
+
+# NB: Se si desidera rimuovere un elemento da una tupla, ciò non è possibile perché le tuple sono immutabili. 
+
+
+
+
+"""
+Se hai bisogno di una raccolta dinamica di elementi che puoi
+aggiungere, rimuovere e aggiornare, allora dovresti usare una lista.
+Se invece sai di lavorare con una raccolta di dati fissa e immutabile,
+allora dovresti usare una tupla.
+"""
+
+
+
+
+
+
+
+
+
+
+
+
