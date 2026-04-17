@@ -21,3 +21,19 @@ print(tp.index("sss"))
 tp = ("33","56","sss","65","py","sss","sll","sdf","sss","pp","155","all","pls")
 print(tp.index("sss",6,10)) # 5
 
+
+# funzione sorted():
+numeri = (5,36,25,85,15,45,26,18,74,15,23,45,96,24,6,84,788,542,6365)
+num = sorted(numeri)
+print(num)
+
+#U possiamo passare dei parametri alla funzione:
+num = sorted(numeri,reverse=True)
+print(num)
+
+programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
+X = sorted(programming_languages,key=len)
+
+print(X)
+
+
