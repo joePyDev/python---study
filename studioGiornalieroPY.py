@@ -3,7 +3,7 @@
 # help()
 
 
-
+r"""
 
 # ------------------ 
 
@@ -18,6 +18,7 @@ eng2sp["one"] = 1
 #print(eng2sp["one"])    
 
 
+
 # funzione len() restituisce il numero di coppie
 eng2sp["two"] = 2
 print(len(eng2sp))
@@ -27,14 +28,18 @@ print(len(eng2sp))
 print("one" in eng2sp)
 
 
+"""
+
 """ metodo value() restituisce i valori come una lista e poi è 
 posibile verificare la presenza di un valore con  operatore in :
-"""
+    
+"""    
+    
+r"""
 valori_dict = list(eng2sp.values())
 if 2 in valori_dict:
     print("i valori sono",valori_dict)
     
-
 
 # dizionari come insieme di contatori
 
@@ -145,6 +150,7 @@ for key in counts:
         print(key,counts[key])
 
 
+
 counts = { "chuck" : 1 , "annie" : 42, "jan": 100}
 
 lst = list(counts.keys())
@@ -153,6 +159,110 @@ lst.sort()
 print(lst)
 for key in lst:
     print(key,counts[key])
+
+
+
+"""
+
+
+
+# analisi avanzata strighe
+
+import string
+#print(string.punctuation)
+
+
+#fname = input("inserisci il nome del file")
+
+
+
+fname = r"C:\Users\gioel\OneDrive\Desktop\testStampa.txt"
+try:
+    fhand = open(fname)
+except:
+    print(f"il file non può essere aperto: {fhand} ")
+    exit()
+count = dict() 
+for line in fhand:
+    line = line.rstrip()
+    line = line.translate(line.maketrans("","",string.punctuation))
+    line = line.lower()
+    words = line.split()
+    for word in words:
+        if not word in count:
+            count[word] = 1
+        else:
+            count[word] += 1
+print(count)            
+
+
+
+
+
+# creare una lista di chiavi/valori
+
+A = {"A":1 , "B": 2 , "C" : 3}
+
+print(list(A))
+print(list(A.keys()))
+print(list(A.values()))
+print(list(A.items()))
+
+
+# Bonus! 2 iteration variables
+
+
+for x , y in A.items():
+    print(x , y )
+
+
+
+
+#name = input("inserisci un file")
+name = r"C:\Users\gioel\OneDrive\Desktop\testStampa.txt"
+
+try:
+    fhand = open(name)
+except:
+    print("file errato",name)
+    exit()
+counts = dict()
+for line in fhand:
+    words = line.split()
+    for word in words:
+        counts[word] = counts.get(word,0)+1
+print(counts)      
+bigcount = None
+bigword = None
+for word,count in counts.items():
+    if bigcount is None or count > bigcount:
+        bigword = word
+        bigcount = count
+print(bigword,bigcount)        
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
