@@ -46,3 +46,29 @@ print(big_chiave ,  big_valore)
             
   
     
+  
+# --------------------------
+
+fname = input("inserisci il percorso del file")
+if len(fname) < 1 : fname = r"C:testStampa.txt"
+fhand = open((fname))
+
+many = dict()
+for line in fhand:
+    line = line.rstrip()
+    wds = line.split()
+    print(wds)
+    
+    for W in wds:
+        many[W] = many.get(W,0)+1
+        
+        
+largest = None        
+BW = None
+for chiave , valore in many.items():
+    if largest is None or valore > largest:
+        largest = valore
+        BW = chiave
+        
+print("Yhaaa",BW, largest)
+        
