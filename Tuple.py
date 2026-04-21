@@ -86,21 +86,117 @@ print(res)
 
 
 
+# assegnazione tupla unpacking:
+m = ["have","fun"]
+
+x,y = m # Assegnazione di tupla (senza parentesi)
+(x,y) = m # Assegnazione con parentesi esplicite
+print(x,y)
+
+
+# assegnazione esplicita 
+x = m[0]
+y = m[1]
+
+
+
+# scambio di valori_
+print(x,y)
+
+x , y = y , x
+
+print(x,y)
+
+
+#Il numero di variabili a sinistra e il numero di valori a destra devono essere uguali:
+# a, b = 1, 2, 3  ValueError: too many values to unpack
+
+
+
+#  il lato destro può contenere un qualsiasi tipo di sequenza (stringa,
+# elenco o tupla).
+
+indirizzo = "monty@python.org"
+uname,domain = indirizzo.split("@") 
+
+
+
+# dizionari e tuple
+d = {"a":10,"b":1,"c":22}
+t = list(d.items())
+print(t)
+
+
+# ordinare l'elenco di tuple.
+d = {"ff":33,"a":10,"b":1,"c":22 }
+t = list(d.items())
+print(t)
+t.sort()
+print(t)
+
+
+
+# Assegnazione multipla con dizionari
+
+for key , val in list(d.items()):
+    print(val,key)
+#  l’ordine è basato sul valore dell’hash (cioè, nessun ordine particolare).
+
+
+
+# ordinare in base al valore:
+d = {"ff":33,"a":10,"b":1,"c":22 }
+l = list()
+for key , val in d.items():
+    l.append((val,key))
+l.sort(reverse = True)
+print(l)
 
 
 
 
 
 
+# Le parole più comuni
+import string
+
+fhand = open (r"C:\Users\gioel\OneDrive\Documenti\Programmazione\Python_course2\esercizi\romeo.txt")
+counts = dict()
+for line in fhand:
+    line = line.translate(str.maketrans("","",string.punctuation))
+    line = line.lower()
+    words = line.split()
+    for word in words:
+        if word not in counts:
+            counts[word] = 1
+        else:
+            counts[word] += 1
+
+lst = list()
+for key , val in list(counts.items()):
+    lst.append((val , key))
+lst.sort(reverse = True) 
+for key , val in lst[:10]:
+    print(key , val)   
 
 
 
 
+# tuple come chiavi nei dizionari
+# Chiave semplice: Stringa, numero.
+# Chiave composta: Tupla.
+# Mai come chiave: Liste, Dizionari, Set (perché sono mutabili).
 
 
+last = 10
+first = 0
+number = "1234562254"
+directory = dict()
+directory[last , first] = number # L’espressione tra parentesi quadre è una tupla.
+print(directory) # {(10, 0): '1234562254'}
 
-
-
+for last , first in directory:
+    print(first , last,directory[last,first])
 
 
 

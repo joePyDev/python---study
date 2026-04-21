@@ -3,6 +3,7 @@
 # help()
 
 
+"""
 
 counts = {}
 
@@ -48,8 +49,19 @@ for word, count in counts.items():
 
 print(largest)
 
+"""
 
 
+
+# Sfida di programmazione funzionale: Calcolatrice di prezzi
+
+sconto = 15
+prezzo_articolo = 75 
+
+valore_sconto = sconto / 100 * prezzo_articolo
+prezzo_scontato = prezzo_articolo - valore_sconto
+
+print(f"il prezzo scontato è: {prezzo_scontato}")  
 
 
 
