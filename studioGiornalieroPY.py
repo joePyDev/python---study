@@ -2,81 +2,41 @@
 # dir() 
 # help()
 
-
-
-
-
-x = { 'chuck' : 1 , 'fred' : 42, 'jan': 100}
-y = x.items()
-
-
-print(y)
-days = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
-print(days[2])
-
-X = ("glen","sally","joseph")
-print(X[1])
-X = (1,2,3,4,5,6)
-print(X)
-print(max(X))
-
-
-
-
-
-(x , y) = ( 4 , 5 )
-
-print(x)
-print(y)
-
-
-d = dict()
-d["csev"] = 2
-d["cwen"] = 4
-
-for (k,v) in d.items():
-    print(k,v)
     
-tups = d.items()
-print(tups)    
-
-d = {"a":10 , "f":123,"c": 12 }
-
-print(d.items())
-print(sorted(d.items()))
-
-
-d = {"a":10 , "f":123,"c": 12 }
-diz = dict()
-for k,v in sorted(d.items()):
-    print(k,v)
-    diz[k] = v
-    print(diz)
-
-
-c = {"a":12,"B":14,"C":45,"s":36}
-tmp = list()
-for k,v in c.items():
-    tmp.append((v,k))
-print(sorted(tmp , reverse = True))
+"""
+- leggere il file
+- trovare  dove viene visualizzata l'ora di invio ( nella figa From)
+- si splitta e si trova l'indice della orario'
+- slice per estrarre l'ora 
+- trovato i valori :
+    organizzare i valori in ora e frequenza
+"""
 
 
 
 
 
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
 
+lista = []
+dizionario = dict()
 
+for riga in handle:
+    riga = riga.rstrip()
+    if riga.startswith("From "):
+        lista = riga.split()
+        orario = lista.pop(5)
+        ora = orario[:2]
+        ora = ora.split()
+        for i in ora:
+            dizionario[i] = dizionario.get(i,0)+1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+newdict = dict()
+newdict = sorted(dizionario.items())
+for val , key in newdict:
+    print(val , key)
+    
+    
