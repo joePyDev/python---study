@@ -2,41 +2,87 @@
 # dir() 
 # help()
 
-    
-"""
-- leggere il file
-- trovare  dove viene visualizzata l'ora di invio ( nella figa From)
-- si splitta e si trova l'indice della orario'
-- slice per estrarre l'ora 
-- trovato i valori :
-    organizzare i valori in ora e frequenza
-"""
 
+numbers = [3,9,1,10,5,2,8]
 
-
-
-
-name = input("Enter file:")
-if len(name) < 1:
-    name = "mbox-short.txt"
-handle = open(name)
-
-lista = []
-dizionario = dict()
-
-for riga in handle:
-    riga = riga.rstrip()
-    if riga.startswith("From "):
-        lista = riga.split()
-        orario = lista.pop(5)
-        ora = orario[:2]
-        ora = ora.split()
-        for i in ora:
-            dizionario[i] = dizionario.get(i,0)+1
-
-newdict = dict()
-newdict = sorted(dizionario.items())
-for val , key in newdict:
-    print(val , key)
+for number in numbers:
+    if number % 2 == 0:
+        print(f"{number} is even")
+    else:
+        print(f"{number} is odd")
+        
+        
+        
+for i in range(10,-1,-1):
+    print(i)
+    if i == 5:
+        print("Raggiunto il punto intermedio!" )
     
     
+    
+    
+    
+
+def livello4():
+    print("Livello 4: sto per finire")
+    return 4
+
+def livello3():
+    print("Livello 3: chiamo livello4")
+    risultato = livello4()
+    print(f"Livello 3: livello4 ha restituito {risultato}")
+    return 3
+
+def livello2():
+    print("Livello 2: chiamo livello3")
+    risultato = livello3()
+    print(f"Livello 2: livello3 ha restituito {risultato}")
+    return 2
+
+def livello1():
+    print("Livello 1: chiamo livello2")
+    risultato = livello2()
+    print(f"Livello 1: livello2 ha restituito {risultato}")
+    return 1
+
+# Chiamata iniziale
+livello1()    
+
+
+
+
+
+
+def raddoppia(x):
+    print("si entra in raddoppia")
+    risultato = x * 2
+    print(f"con valore x {x} e risultatto {risultato}")
+    print("si esce da raddoppia")
+    return risultato
+
+n = 7
+doppio = raddoppia(n)
+print("risultato finale", doppio)
+
+
+
+def somma(a,b):
+    print("sono dentro somma e con valori a & b = ",a,"&",b)
+    return a + b
+
+def triplo(val):
+    print("ingresso su triplo val=",val)
+    print("sto per entrare in somma")
+    temp = somma(val, val+1)   
+    print("sono tornato dentro triplo e temp è == ", temp)
+    return temp + val
+
+
+print("inizio")
+ris = triplo(4)
+print("sono uscito dalle funzioni e il risultato è")
+print(ris)
+
+
+
+
