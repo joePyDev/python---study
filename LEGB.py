@@ -38,6 +38,7 @@ except NameError as e:
 
 
 
+
 # ESEMPIO 2 - Ambito Globale (G)
 
 # Questa è una variabile GLOBALE: definita fuori da qualsiasi funzione
@@ -80,6 +81,8 @@ print("Dopo cambia_nome(), globale nome =", nome)   # Resta 'Alice'
 print("\n3. Chiamo cambia_nome_globale() (con global):")
 cambia_nome_globale()
 print("Dopo cambia_nome_globale(), globale nome =", nome)   # Ora 'Charlie'
+
+print("fine globale il nome è modificato in",nome,"\n")
 
 
 

@@ -1,24 +1,20 @@
-
 """
-possibile iterare su un dizionario se è necessario accedere
-ed elaborare le sue coppie chiave-valore.
+Write a Python program to retrieve a 
+web page over a socket and display the headers from the web server.
 """
 
-prodotti = {
-    'Laptop': 990,
-    'Smartphone': 600,
-    'Tablet': 250,
-    'Headphones': 70,
-}
+import socket
 
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect(('data.pr4e.org', 80))
+cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
+mysock.send(cmd)
 
-# values() , keys() , items()
+while True:
+    data = mysock.recv(512)
+    if len(data) < 1:
+        break
+    print(data.decode(),end='')
 
-for valore in prodotti.values():
-    print(valore)
+mysock.close()
 
-for chiave in prodotti.keys():
-    print(chiave)    
-    
-for chiave , valore in prodotti.items():
-    print(chiave,valore)
