@@ -34,11 +34,6 @@ except NameError as e:
     
     
 
-
-
-
-
-
 # ESEMPIO 2 - Ambito Globale (G)
 
 # Questa è una variabile GLOBALE: definita fuori da qualsiasi funzione

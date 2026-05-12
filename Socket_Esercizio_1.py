@@ -23,24 +23,27 @@ mysock.close()
 
 
 import socket
+
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-inp = input(str("inserisci url >>> "))
+inp = input("inserisci url >>> ")
 splitted_url = inp.split("/")
 
 try:
-    mysock.connect((splitted_url[2], 80))
+    host = splitted_url[2]
+    mysock.connect((host, 80))
     cmd = f'GET {inp} HTTP/1.0\r\n\r\n'.encode()
     mysock.send(cmd)
-except:
-    print("errore url")
 
-while True:
-    data = mysock.recv(512)
-    if len(data) < 1:
-        break
-    print(data.decode(),end='')
-    
-mysock.close()
+    while True:
+        data = mysock.recv(512)
+        if len(data) < 1:
+            break
+        print(data.decode(), end='')
 
+except Exception as e:
+    print(f"Si è verificato un errore: {e}")
+
+finally:
+    mysock.close()
 
 
