@@ -422,11 +422,10 @@ def count(parola,let):
 
 count("sono una frase" , "s")
 
-"""
 
 
 
-""" 
+
 esercizio 13
 esiste un metodo per le stringhe chiamato count simile alla funzione
 dell’esercizio precedente.
@@ -443,9 +442,9 @@ print(lettera)
 
 
 
+r"""
 
 
-"""
 esercizio 14
 
  prendi il seguente codice Python contenente una stringa: str =
@@ -465,12 +464,12 @@ float_parte_estratta = float(parte_estratta)
 
 print(float_parte_estratta)
 
-"""
 
 
 
 
-r"""
+
+
 esercizio 15
 
 
@@ -499,12 +498,12 @@ try:
 except FileNotFoundError:
     print("File non trovato.")
         
-"""
 
 
 
 
-"""
+
+
 esercizio 16
 
 scrivi un programma per richiedere il nome di un file, leggerlo e
@@ -545,11 +544,13 @@ try:
 except FileNotFoundError:
     print("inserisci un file valido")            
         
-"""
+
+
+
 
 
             
-"""
+
 esercizio 17
 
  Capita che quando gli sviluppatori si annoiano o vogliono divertirsi,
@@ -568,7 +569,7 @@ python egg.py
 Inserisci il nome del file: na na boo boo
 NA NA BOO BOO TO YOU- You have been punk'd!
 
-"""
+
 
 percorso = input("inserisci il percorso del file: ")
 if percorso != "na na boo boo" :
@@ -595,6 +596,289 @@ else:
 
 
 
+
+
+
+
+esercizio 18
+
+Scrivi una funzione chiamata chop che prenda un elenco, lo modifichi
+rimuovendo il primo e l’ultimo elemento e restituisca None.
+Quindi scrivi una funzione chiamata middle che prenda un elenco e restituisca un
+nuovo elenco contenente tutti gli elementi tranne il primo e l’ultimo.
+
+
+
+lista1 = [0,1,2,3,4,5,6,7,8,9]
+
+def chop(my_lista):
+    my_lista.pop(0)
+    my_lista.pop(-1)
+    
+chop(lista1)
+
+
+def middle(my_lista):
+    new_list = list()
+    new_list = my_lista[1:-1]
+    return new_list
+    
+A = middle(lista1)
+print(A)
+
+
+
+
+
+
+
+esercizio 19
+
+scopri quale riga del programma precedente non è ancora adeguata
+mente protetta. Cerca di costruire un file di testo che faccia fallire il programma
+e quindi modifica il programma in modo che la riga sia adeguatamente protetta
+e testala nuovamente per essere sicuro che gestisca correttamente il nuovo file di
+testo.
+
+
+
+fhand = open(r"testoesempio.txt")
+count = 0
+for line in fhand:
+    words = line.split()
+    #print ('Debug:', words)
+    if len(words) == 0 : continue
+    if words[0] != 'From' : continue
+    if len(words) < 3: continue # agguinto controllo lungezza minima
+    print(words[2]) # IndexError: list index out of range
+
+
+
+
+
+esercizio 20
+riscrivi il codice guardiano dell’esempio precedente senza le due
+istruzioni if. Usa invece un’espressione logica composta dall’operatore and e una
+singola istruzione if.
+
+
+fhand = open(r"testoesempio.txt")
+count = 0
+for line in fhand:
+    words = line.split()
+  #  print ('Debug:', words)
+    if len(words) > 0 and words[0] == 'From' and len(words) >= 3:
+        print(words[2]) 
+
+
+
+
+
+esercizio 20
+
+ scarica una copia del file www.py4e.com/code3/romeo.txt
+Scrivi un programma che lo apra e lo legga riga per riga. Dividi la riga in un elenco
+di parole usando la funzione split.
+Controlla se ogni parola è già presente in un elenco. Se la parola non è nell’elenco,
+aggiungila. Al termine del programma, ordina e visualizza in ordine alfabetico le
+parole risultanti.
+
+
+fhand = r"romeo.txt"
+lista_parole = list()
+
+try:
+    with open(fhand) as handle:
+        for line in handle:
+            line = line.rstrip()
+            parole = line.split()
+            for parole_selezionate in parole:
+                if not parole_selezionate in lista_parole:
+                    lista_parole.append(parole_selezionate)
+                    lista_parole.sort()
+                  
+    print(lista_parole)
+                 
+except FileNotFoundError:
+    print("errore con il file")
+                        
+   
+
+
+
+
+
+esercizio 21
+Scrivi un programma per leggere i dati della casella di posta e quando
+trova la riga che inizia con “From”, divida la riga in parole usando la funzione split.
+Siamo interessati a sapere chi ha inviato il messaggio indicato nella parola delle
+righe che iniziano con From.
+From stephen.marquard@uct.ac.za Sat 5 Jan 09:14:16 2008
+Analizza la riga From per visualizzarne la seconda parola, quindi conta anche il
+numero di righe From (non From:), visualizzandone il risultato alla fine.
+
+
+
+casella_posta = r"C:\Users\gioel\OneDrive\Documenti\Programmazione\Python_course2\esercizi\mbox-short.txt"
+numero_righe = 0
+
+try:
+    with open(casella_posta) as hand:
+        numero_righe = 0
+        for linea in hand:
+            if linea.startswith("From "):
+                parole = linea.split()
+                print(parole[1])
+                numero_righe += 1
+        print(f"There were {numero_righe} lines...")
+except FileNotFoundError:
+    print("Errore: file non trovato")        
+
+
+
+
+
+esercizio 22
+
+Riscrivi il programma che richiede all’utente un elenco di numeri e
+ne visualizza il maggiore ed il minore, quando riceve in input la stringa “done”. Il
+programma ora memorizzerà i numeri inseriti dall’utente in un elenco e tramite le
+funzioni max() e min() fornirà i numeri massimo e minimo quando l’utente fornisce
+in input la parola “done”.
+Enter a number: 6
+Enter a number: 2
+Enter a number: 9
+Enter a number: 3
+Enter a number: 5
+Enter a number: done
+Maximum: 9.0
+Minimum: 2.0
+
+
+
+
+import sys
+
+lista_elenco = list()
+try:
+   while True:
+        inserimento_utente = input("Enter a number: ") # da gestire con input
+        if inserimento_utente == "done": break
+        lista_elenco.append(float(inserimento_utente))
+except ValueError:
+    print("inserire un numero correttamente")
+    sys.exit()
+
+if lista_elenco:
+    numero_minore = min(lista_elenco)
+    numero_maggiore =max(lista_elenco)
+
+print(f"Maximum: {numero_maggiore}")
+print(f"Mnimum: {numero_minore}")
+
+
+
+
+
+esercizio 23
+
+Scarica una copia del file: www.py4e.com/code3/words.txt
+Scrivi un programma che legga le parole in words.txt e le memorizzi come chiavi
+in un dizionario.Non importa quali siano i valori. Quindi puoi usare l’operatore
+in per verificare rapidamente se una stringa è contenuta nel dizionario.
+
+
+
+
+percorso_file = r"testoesempio.txt"
+dizionario = dict()
+
+with open(percorso_file) as hand:
+    for line in hand:
+        line = line.rstrip()
+        line = line.split()
+        for parola in line:
+            dizionario[parola] = 1
+    if "your" in dizionario:
+        print(dizionario)
+
+   
+
+esercizio 24
+
+Scrivi un programma che classifichi ogni messaggio di posta in base
+al giorno della settimana in cui è stato inviato. Per fare ciò, cerca le righe che
+iniziano con “From”, quindi cerca la terza parola e aggiorna il conteggio di ciascuno
+dei giorni della settimana. Alla fine del programma visualizza i contenuti del tuo
+dizionario (l’ordine non ha importanza).
+Riga di esempio:
+From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008
+
+Esempio di esecuzione:
+python dow.py
+Enter a file name: mbox-short.txt
+{'Fri': 20, 'Thu': 6, 'Sat': 1}
+
+
+
+percorso_file = r"mbox-short.txt"
+
+my_dict = dict()
+
+with open(percorso_file) as hand:
+    for line in hand:
+        line = line.rstrip()
+        if line.startswith("From "):
+            line = line.split()
+            if not line[2] in my_dict:
+                my_dict[line[2]] = 1
+            else:
+                my_dict[line[2]] += 1
+print(my_dict)
+
+percorso_file = r"mbox-short.txt"
+conteggio_giorni = {}
+
+with open(percorso_file) as handle:
+    for riga in handle:
+        if not riga.startswith("From "):
+            continue
+        parole = riga.split()
+        if len(parole) < 3:
+            continue
+        giorno = parole[2]
+        conteggio_giorni[giorno] = conteggio_giorni.get(giorno,0)+1
+        
+print(conteggio_giorni)
+        
+
+
+
+
+
+
+
+
+
+esercizio 25
+Scrivi un programma che analizzi un log di posta, crei un istogramma
+utilizzando un dizionario per contare quanti messaggi sono arrivati da ciascun
+indirizzo di posta elettronica ed infine visualizzi il dizionario
+
+"""
+
+
+percorso_file = r"C:\Users\gioel\OneDrive\Documenti\Programmazione\Python_course2\esercizi\mbox-short.txt"
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 
