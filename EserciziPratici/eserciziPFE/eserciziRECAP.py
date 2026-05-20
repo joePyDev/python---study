@@ -719,7 +719,7 @@ numero di righe From (non From:), visualizzandone il risultato alla fine.
 
 
 
-casella_posta = r"C:\Users\gioel\OneDrive\Documenti\Programmazione\Python_course2\esercizi\mbox-short.txt"
+casella_posta = r"mbox-short.txt"
 numero_righe = 0
 
 try:
@@ -859,26 +859,547 @@ print(conteggio_giorni)
 
 
 
-
 esercizio 25
 Scrivi un programma che analizzi un log di posta, crei un istogramma
 utilizzando un dizionario per contare quanti messaggi sono arrivati da ciascun
 indirizzo di posta elettronica ed infine visualizzi il dizionario
 
+Enter file name: mbox-short.txt
+{'gopal.ramasammycook@gmail.com': 1, 'louis@media.berkeley.edu': 3,
+'cwen@iupui.edu': 5, 'antranig@caret.cam.ac.uk': 1,
+'rjlowe@iupui.edu': 2, 'gsilver@umich.edu': 3,
+'david.horwitz@uct.ac.za': 4, 'wagnermr@iupui.edu': 1,
+'zqian@umich.edu': 4, 'stephen.marquard@uct.ac.za': 2,
+'ray@media.berkeley.edu': 1}
+
+
+
+percorso_file = r"mbox-short.txt"
+dizionario = {}
+
+with open(percorso_file) as fhand:
+    for line in fhand:
+        if not line.startswith("From "):
+            continue
+        line = line.split()
+        if len(line) < 2:
+            continue
+        dizionario[line[1]] = dizionario.get(line[1],0) +1 
+print(dizionario)
+        
+
+
+
+
+
+
+
+esercizio 26
+Aggiungi del codice allo script dell’esercizio precedente che indichi
+chi ha il maggior numero di messaggi nel file.
+Dopo che sono stati analizzati tutti i dati ed i risultati sono salvati nel dizionario
+sono stati letti e il dizionario è stato creato, tramite un ciclo “massimo” (vedi
+nel capitolo 5 la sezione 5.7.2 per limitare i cicli) trova chi ha più messaggi e
+visualizzane il numero.
+
+
+    
+
+percorso_file = r"mbox-short.txt"
+dizionario = {}
+lista = []
+
+with open(percorso_file) as fhand:
+    for line in fhand:
+        if not line.startswith("From "):
+            continue
+        line = line.split()
+        if len(line) < 2:
+            continue
+        dizionario[line[1]] = dizionario.get(line[1],0) +1 
+    for chiave , valore in dizionario.items():
+        lista.append((valore,chiave))
+    lista.sort(reverse=True)
+    for istogramma in lista:
+       print(istogramma[1] , istogramma[0])
+        
+
+
+
+
+esercizio 27
+ Scrivi uno script che registri il nome di dominio (anziché l’indirizzo)
+da cui è stato inviato il messaggio anziché il mittente (ovvero, l’intero indirizzo
+email). Alla fine fai in modo che il programma visualizzi i contenuti del dizionario.
+python schoolcount.py
+Enter a file name: mbox-short.txt
+{'media.berkeley.edu': 4, 'uct.ac.za': 6, 'umich.edu': 7,
+'gmail.com': 1, 'caret.cam.ac.uk': 1, 'iupui.edu': 8}
+
+
+   
+
+percorso_file = r"mbox-short.txt"
+dizionario = {}
+
+
+with open(percorso_file) as fhand:
+    for line in fhand:
+        if not line.startswith("From "):
+            continue
+        line = line.rstrip()
+        line = line.split()
+        if len(line) < 1:
+            continue
+        indirizzo = line[1]
+        indirizzo = indirizzo.split("@")
+        indirizzo = indirizzo[1]
+        dizionario[indirizzo] = dizionario.get(indirizzo,0) +1
+        
+        
+print(dizionario)# {'uct.ac.za': 6, 'media.berkeley.edu': 4, 'umich.edu': 7, 'iupui.edu': 8, 'caret.cam.ac.uk': 1, 'gmail.com': 1}
+       
+
+
+        
+
+
+esercizio 28
+Rivediunodegliscriptprecedentinelmodoseguente: leggieanalizza
+le righecontenenti “From”edestrai gli indirizzi dallariga. Conta il numerodi
+messaggiprovenientidaognipersonausandoundizionario.Dopoaverlettotutti i
+dati,visualizzalapersonaconilmaggiornumerodioccorrenzecreandounelenco
+di tuple(count, email)daldizionario. Quindiordina l’elenco inordine inversoe
+visualizzalapersonachehailmaggiornumerodioccorrenze.
+Esempiodiriga:
+Fromstephen.marquard@uct.ac.za Sat5Jan 09:14:162008
+Inserireunnome perilfile:mbox-short.txt
+cwen@iupui.edu 5
+Immettereunnome file:mbox.txt
+zqian@umich.edu 195
+
+
+
+
+
+percorso_file = r"mbox-short.txt"
+conteggi = {}
+
+with open(percorso_file) as fhand:
+    for linea in fhand:
+        if not linea.startswith("From "):
+            continue
+        parti = linea.split()
+        if len(parti) < 2:
+            continue
+        email = parti[1]
+        conteggi[email] = conteggi.get(email, 0) + 1
+
+
+lista_tuple = [(count, email) for email, count in conteggi.items()]
+lista_tuple.sort(reverse=True)
+massimo_conteggio, email_massimo = lista_tuple[0]
+
+print("Indirizzo con più messaggi:", email_massimo)
+print("Numero di messaggi:", massimo_conteggio)
+
+
+
+
+
+
+esercizio 29
+
+Questoprogrammacontaladistribuzionedelleoredelgiornoincuiè
+statospeditociascunodeimessaggi.Puoiestrarrel’oradallariga“From”trovando
+lastringadell’orarioequindi suddividendoquellastringausandoil caratteredei
+duepunti. Dopoaver registrato i conteggiperogni timestamp, visualizzali,uno
+perriga,ordinandoli inbaseall’oracomemostratodiseguito.
+
+Esempiodiesecuzione:
+pythontimeofday.py
+Enterafilename: mbox-short.txt
+043
+061
+071
+092
+103
+116
+141
+152
+164
+172
+181
+191
+
+
+
+
+        
+percorso_file = r"mbox-short.txt"
+conteggio_ore = {}
+
+with open(percorso_file) as fhand:
+    for riga in fhand:
+        if not riga.startswith("From "):
+            continue
+        parole = riga.split()
+        orario = None
+        for p in parole:
+            if ":" in p:
+                orario = p.split(":")[0]
+                break
+        if orario is None:
+            continue
+        conteggio_ore[orario] = conteggio_ore.get(orario, 0) + 1
+
+for ora in sorted(conteggio_ore.keys()):
+    print(ora, conteggio_ore[ora])
+
+
+
+
+
+
+
+esercizio 30
+
+:Scriviunprogrammacheleggaunfileevisualizzi lelettereinordine
+di frequenzadecrescente. Il tuoprogrammadovrebbeconvertiretuttigli input in
+lettereminuscoleecontaresololeletteredallaaallaz. Ilprogrammanondovrebbe
+contarespazi, cifre, segnidipunteggiaturaoaltrooltrealle letteredallaaallaz.
+Trovaesempiditestoindiverselingueescopricomevarialafrequenzadellelettere
+inbaseallalinguainesame.Confrontairisultaticonletabellepresenti inwikipe
+dia.org/wiki/Letter_frequencies
+
+
+import string
+import sys
+
+def preleva_valore(item):
+    return item[1]
+
+percorso_file = r"mbox-short.txt"
+conteggio = {}
+
+try:
+    with open(percorso_file) as fhand:
+        for linea in fhand:
+            for carattere in linea.lower():
+                if carattere in string.ascii_lowercase:
+                    conteggio[carattere] = conteggio.get(carattere, 0) + 1
+except FileNotFoundError:
+    print("File non trovato.")
+    sys.exit()
+
+for lettera, freq in sorted(conteggio.items(), key=preleva_valore, reverse=True):
+    print(lettera, freq)
+
+# utilizzando una funzione lambda
+#for lettera, freq in sorted(conteggio.items(), key=lambda x: x[1], reverse=True):
+#    print(lettera, freq)
+
+
+
+
+esercizio 31
+
+Scrivi un semplice programma che simuli il comportamento del co
+mando grep di Unix. Fai che richieda all’utente l’inserimento di un’espressione
+regolare e poi ritorni il numero di righe che corrispondono alle specifiche della
+ricerca.
+
+
+import re
+percorso_file = r"mbox-short.txt"
+contatore = 0
+
+inserimento_utente = input("Enter a regular expression: ") 
+if inserimento_utente == "":
+    inserimento_utente = "^From:.+@"
+
+with open(percorso_file) as handle:
+    for line in handle:
+        line = line.rstrip()
+        if re.search("^From:.+@", line):
+            contatore += 1
+print(f"mbox.txt had {contatore} lines that matched {inserimento_utente}")
+
+
+
+
+
+
+
+
+
+esercizio 32
+
+Scrivi un programma per trovare le stringhe contenenti:
+`New Revision: 39772`
+provvedendo ad estrarre il numero da ciascuna tramite l’uso del metodo findall()
+e di una espressione regolare. Calcola e visualizza la media dei numeri.
+Enter file:mbox.txt
+38444.0323119
+Enter file:mbox-short.txt
+39756.9259259
+
+
+
+import re
+contatore = 0
+percorso_file = r"mbox-short.txt"
+
+totale_valori = 0
+
+with open(percorso_file) as handle:
+    for line in handle:
+        line = line.rstrip()
+        if re.search(r'^New Revision:\s+(\d+)', line):
+            contatore +=1
+            valori = re.findall(("\d+"),line)
+            for i in valori:
+               totale_valori = totale_valori + int(i)
+    if contatore > 0:           
+        media_valori = totale_valori / contatore
+        print(media_valori)
+    else:
+        print("nessuna riga valida trovata")
+
+
+
+
+
+
+
+
+esercizio 33
+Modifica il programma socket socket1.py in modo da richiedere
+all’utente l’URL rendendolo quindi in grado di leggere qualsiasi pagina web. Puoi
+usare split('/') per suddividere l’URL nelle sue componenti in modo da poter
+estrarre il nome host per la chiamata connect del socket. Aggiungi il controllo
+degli errori usando try ed except per gestire la condizione in cui l’utente inserisca
+un URL non formattato correttamente o sia inesistente.
+
+
+
+import socket
+
+def main():
+    url = input('Enter URL (e.g., http://data.pr4e.org/romeo.txt): ').strip()
+    
+    # Rimuovi http:// se presente (gestisci anche https? per semplicità no)
+    if url.startswith('http://'):
+        url = url[7:]
+    elif url.startswith('https://'):
+        print("Questo programma supporta solo HTTP (porta 80).")
+        return
+    
+    try:
+        # Dividi per ottenere host e path
+        parts = url.split('/')
+        host = parts[0]
+        if len(parts) > 1:
+            path = '/' + '/'.join(parts[1:])
+        else:
+            path = '/'
+        
+        print("DEBUG >>>>>> ", path)
+        
+        # Connessione
+        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        mysock.connect((host, 80))
+        request = f'GET {path} HTTP/1.0\r\nHost: {host}\r\n\r\n'
+        mysock.send(request.encode())
+        
+        # Ricevi e stampa
+        while True:
+            data = mysock.recv(512)
+            if len(data) < 1:
+                break
+            print(data.decode())
+        mysock.close()
+    
+    except ValueError:
+        print("URL malformato. Assicurati che sia nel formato corretto.")
+    except socket.gaierror:
+        print("Host non trovato. Controlla il nome del server.")
+    except socket.error as e:
+        print(f"Errore di connessione: {e}")
+    except Exception as e:
+        print(f"Errore generico: {e}")
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+esercizio 34
+ Modifica il tuo programma socket in modo che conti il numero
+di caratteri che ha ricevuto e interrompa la visualizzazione di qualsiasi testo dopo
+che ne ha mostrato 3000. Il programma dovrà inoltre accettare l’intero documento,
+contare il numero totale di caratteri e visualizzarne il numero.
+
+
+import socket
+
+def main():
+    url = input('Enter URL (e.g., http://data.pr4e.org/romeo.txt): ').strip()
+    
+    # Rimuovi http:// se presente (gestisci anche https? per semplicità no)
+    if url.startswith('http://'):
+        url = url[7:]
+    elif url.startswith('https://'):
+        print("Questo programma supporta solo HTTP (porta 80).")
+        return
+    
+    try:
+        # Dividi per ottenere host e path
+        parts = url.split('/')
+        host = parts[0]
+        if len(parts) > 1:
+            path = '/' + '/'.join(parts[1:])
+        else:
+            path = '/'
+        
+        print("DEBUG >>>>>> ", path)
+        
+        # Connessione
+        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        mysock.connect((host, 80))
+        request = f'GET {path} HTTP/1.0\r\nHost: {host}\r\n\r\n'
+        mysock.send(request.encode())
+        
+        
+        # gestione caratteri
+        appoggio_data = b""
+        limit = 3000
+        
+        while True:
+            data = mysock.recv(5120)
+            if not data: break
+            appoggio_data += data
+        testo_completo = appoggio_data.decode()
+        totale_caratteri = len(testo_completo)
+        
+        # Stampa i primi 3000 caratteri
+        print("\n--- PRIMI 3000 CARATTERI ---")
+        print(testo_completo[:limit])
+        print("\n--- FINE PRIMI 3000 ---")
+        print(f"\nNumero totale di caratteri ricevuti: {totale_caratteri}")
+        mysock.close()
+    
+    
+    
+    except ValueError:
+        print("URL malformato. Assicurati che sia nel formato corretto.")
+    except socket.gaierror:
+        print("Host non trovato. Controlla il nome del server.")
+    except socket.error as e:
+        print(f"Errore di connessione: {e}")
+    except Exception as e:
+        print(f"Errore generico: {e}")
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+esercizio 35 
+ Utilizza urllib per replicare l’esercizio precedente per (1) recuperare
+il documento da un URL, (2) visualizzare i primi 3000 caratteri e (3) contarne
+il numero complessivo. Non preoccuparti delle intestazioni per questo esercizio,
+per ora è sufficiente mostrare semplicemente i primi 3000 caratteri contenuti nel
+documento.
+
+
+
+
+import urllib.request
+
+url = "http://data.pr4e.org/clown.txt"
+fhand = urllib.request.urlopen(url)
+
+frammenti = []
+totale = 0
+
+for line in fhand:
+    riga = line.decode()      
+    frammenti.append(riga)
+    totale += len(riga)
+
+testo = ''.join(frammenti)
+print(testo[:3000])
+print(f"\nTotale caratteri: {totale}")
+
+
+
+
+
+esercizio 36
+ Modifica il programma urllinks.py per estrarre e contare i tag
+di paragrafo (p) dal documento HTML scaricato e visualizza il conteggio dei pa
+ragrafi come output del programma. Non visualizzare il testo del paragrafo: è
+sufficiente contarli. Metti alla prova il programma con diverse pagine Web e di
+varie dimensioni.
+
+
+
+
+
+import urllib.request, urllib.parse, urllib.error
+from bs4 import BeautifulSoup
+import ssl
+
+# Ignora errori di certificato SSL (utile per siti con HTTPS)
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+url = input('Inserisci URL: ')
+html = urllib.request.urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, 'html.parser')
+
+# Trova tutti i tag <p> (paragrafo)
+paragrafi = soup.find_all('p')
+conteggio = len(paragrafi)
+
+print(f"Numero di paragrafi nella pagina: {conteggio}")
+
+
+
+
 """
 
 
-percorso_file = r"C:\Users\gioel\OneDrive\Documenti\Programmazione\Python_course2\esercizi\mbox-short.txt"
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
