@@ -32,13 +32,15 @@ Pulisci i dati (togli caratteri inutili)
 Scrivi i dati in un file CSV
 
 
-
-
 """
+
+
+
+
 
 import requests
 from bs4 import BeautifulSoup
-import csv
+
 
 url = 'http://books.toscrape.com/'
 
