@@ -1,14 +1,9 @@
-# To run this, download the BeautifulSoup zip file
-# http://www.py4e.com/code3/bs4.zip
-# and unzip it in the same directory as this file
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import ssl
 import re
 import sys
-
-
 
 
 # Ignore SSL certificate errors
@@ -27,6 +22,7 @@ except Exception as e :
 
 parte_cercata = '\d+'
 somma = 0
+count = 0
 tag_cercato = "span"
 
 tags = soup.find_all(tag_cercato)
@@ -39,10 +35,14 @@ for tag in tags:
     lista = (re.search(parte_cercata,tag))
     if lista:
         numero = int(lista.group())
+        count += 1
         somma += numero
 if not somma:
     print("non ci sono valori da sommare")    
 else:
-    print("la somma è",somma) 
+    print(f"Count {count}")
+    print(f"Sum {somma}") 
 
 
+# http://py4e-data.dr-chuck.net/comments_42.html
+# https://py4e-data.dr-chuck.net/comments_2383206.html
