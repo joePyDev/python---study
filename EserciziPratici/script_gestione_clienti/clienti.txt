@@ -1,0 +1,40 @@
+{
+    "1": {
+        "nome": "Luca Rossi",
+        "servizi": [
+            {
+                "data": "2026/05/5",
+                "tipo": "freni ant",
+                "costo": 200.0
+            }
+        ]
+    },
+    "2": {
+        "nome": "Pippo Calippo",
+        "servizi": []
+    },
+    "3": {
+        "nome": "Seeb Rich",
+        "servizi": []
+    },
+    "4": {
+        "nome": "Super Vax",
+        "servizi": []
+    },
+    "5": {
+        "nome": "Saint Jhan",
+        "servizi": []
+    },
+    "6": {
+        "nome": "Michele Manco",
+        "servizi": []
+    },
+    "7": {
+        "nome": "Bacon Bacon",
+        "servizi": []
+    },
+    "8": {
+        "nome": "Van Rossum",
+        "servizi": []
+    }
+}

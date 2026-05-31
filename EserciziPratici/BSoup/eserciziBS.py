@@ -1,25 +1,42 @@
 import requests
 from bs4 import BeautifulSoup
-import sys
 
-url = "http://books.toscrape.com/"
-response = requests.get(url)
+r = requests.get("http://books.toscrape.com/")
 
-if response.status_code == 200:
-    print("Pagina scaricata con successo")
-else:
-    print(f"Errore {response.status_code}")
-    sys.exit()
+"""print(r.status_code)
+print(type(r.text))
+print(len(r.text))
+print(r.text[:400])"""
+
+
+
+
+with open("mio_sito.html","w") as file:
+    file.write(r.text)
     
-soup = BeautifulSoup(response.text,"html.parser")    
-
-
-title_tag = soup.find('title')
-print("Titolo della pagina:", title_tag.text)
-
-paragrafi = soup.find_all('p')
-print(f"\nNumero di paragrafi trovati: {len(paragrafi)}")
-# Stampa solo il primo paragrafo come esempio
-if paragrafi:
-    print("Primo paragrafo:", paragrafi[0].text[:100])
+with open("mio_sito.html") as file:
+    html_content = file.read()
     
+soup = BeautifulSoup(html_content,"html.parser")
+
+print(soup.find("title").text)
+
+libri = soup.find_all(class_="product_pod")
+print(f"numero libri trovati {len(libri)}")
+
+primo_libro = soup.find("h3").get_text()
+
+print("\n>>>>>>\n")
+print(primo_libro)
+
+
+indice = 0
+lista_libri = soup.find_all("h3")
+for libro in lista_libri:
+    indice = indice + 1
+    print(f"indice libro n:{indice}", libro.get_text())
+
+
+
+
+
