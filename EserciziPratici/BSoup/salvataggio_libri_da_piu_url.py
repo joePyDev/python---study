@@ -6,31 +6,7 @@
 
 
 
-
 """
-url = "https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html"
-# Scrivi la riga per importare la libreria requests e la riga per fare la richiesta GET all'URL.
-r = requests.get('https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html')
-
-if r.status_code != 200:
-    print("Errore nel download")
-    exit()    
-    
-soup = BeautifulSoup(r.text,"html.parser")
-
-tag = soup.find("li",class_="next")
-tag = tag.find("a")
-tag = tag.get("href")
-page2_tag = url.replace("index.html","page-2.html")
-"""
-
-"""
-
-
-
-
-
-
 1. Imposta url_partenza = "https://.../index.html"
 2. Crea una lista vuota per tutti i libri
 3. Finché esiste una url:
@@ -45,8 +21,8 @@ page2_tag = url.replace("index.html","page-2.html")
 """
 
 
+import os
 
-import sys
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -125,14 +101,18 @@ while True:
     #----------------------------------------------------------------------
     
 
-with open("fantasy_book_csv","w" , newline="",encoding="utf-8") as f:
-    write = csv.DictWriter(f,fieldnames=["titolo", "prezzo", "disponibilita", "link"])
-    write.writeheader()
-    write.writerows(tutti_libri)
-    
-print(f"Salvati {len(tutti_libri)} libri in fantasy_books.csv")    
+with open("fantasy_books.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.DictWriter(f, fieldnames=["titolo", "prezzo", "disponibilita", "link"])
+    writer.writeheader()
+    writer.writerows(tutti_libri)
+
+print(f"Salvati {len(tutti_libri)} libri in fantasy_books.csv") 
    
-    
+print("Il CSV sarà salvato in:", os.getcwd())
+
+
+
+
     
     
     

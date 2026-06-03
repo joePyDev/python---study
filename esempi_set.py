@@ -24,8 +24,6 @@ print(merged)
 
 
 
-
-
 survey_a = ["blue", "green", "blue", "red", "green"]
 survey_b = ["yellow", "blue", "yellow", "red"]
 
