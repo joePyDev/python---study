@@ -5,9 +5,6 @@ errori di decodifica, timeout…) e la gestisce in un unico punto.
 
 """
 
-
-
-
 import sys
 
 try:
