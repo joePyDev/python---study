@@ -1,8 +1,8 @@
 """
 Esercizio 1 – Scarica e stampa una pagina semplice
 Obiettivo: Scaricare il contenuto di una pagina web
- (es. http://data.pr4e.org/romeo.txt) 
-e stamparlo a schermo riga per riga 
+ (es. http://data.pr4e.org/romeo.txt)
+e stamparlo a schermo riga per riga
 (senza modifiche, mantenendo spazi e newline).
 
 Suggerimenti:
@@ -24,10 +24,6 @@ for line in fhand:
 
 """
 
-
-
-
-
 """
 Esercizio 2 – Conta le parole in una pagina web
 Obiettivo: Scaricare il testo da un URL, contare il numero totale di parole 
@@ -45,33 +41,16 @@ Variante: Conta quante volte compare una certa parola (es. "the").
 """
 
 
-import urllib.request , urllib.parse , urllib.error
+import urllib.request, urllib.parse, urllib.error
+
 fhand = urllib.request.urlopen("http://data.pr4e.org/romeo.txt")
 
 counts = dict()
 for line in fhand:
-    print("Debug >>>>",line)
-    parole  = line.decode().split()
+    print("Debug >>>>", line)
+    parole = line.decode().split()
     for parola in parole:
-        counts[parola] = counts.get(parola,0) +1
-        
-print(counts) 
+        counts[parola] = counts.get(parola, 0) + 1
+
+print(counts)
 print(parole)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

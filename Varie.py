@@ -1162,17 +1162,18 @@ print(mySomma)
 
 
 # Come puoi vedere, la calculate_sumfunzione stampa la somma di ae b,
-#  ma non restituisce nulla in modo esplicito. 
-# Quindi, quando assegniamo il risultato a my_sum, 
-# il valore in realtà è None. Per risolvere il problema, 
+#  ma non restituisce nulla in modo esplicito.
+# Quindi, quando assegniamo il risultato a my_sum,
+# il valore in realtà è None. Per risolvere il problema,
 # puoi usare la returnparola chiave per restituire il risultato:
+
 
 def calcoloSomma(a, b):
     print(a + b)
     return a + b
 
+
 mySomma = calcoloSomma(5, 10)
 print(mySomma)
 
 # Ora calculate_sumrestituisce la somma di ae b, che viene memorizzata in mySomma.
-

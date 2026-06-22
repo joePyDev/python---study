@@ -1,13 +1,13 @@
 import pandas as pd
 
 # Load inventory data from CSV
-inventory_df = pd.read_csv('inventory.csv')
+inventory_df = pd.read_csv("inventory.csv")
 
 # Set the 'product_name' column as the index
-inventory_df.set_index('product_name', inplace=True)
+inventory_df.set_index("product_name", inplace=True)
 
 # Convert the DataFrame directly to a dictionary, selecting only the 'stock_level' column
-inventory_dict = inventory_df['stock_level'].to_dict()
+inventory_dict = inventory_df["stock_level"].to_dict()
 
 # Print the inventory
 print("Initial Inventory:")
@@ -26,15 +26,13 @@ print(inventory_dict)
 
 # We've discontinued "Peanut Butter Biscuits". Remove it from the inventory
 
-# Remove item 
-del inventory_dict["Peanut Butter Biscuits"] 
+# Remove item
+del inventory_dict["Peanut Butter Biscuits"]
 
 print("\nUpdated Inventory after Discontinuation:")
 print(inventory_dict)
 
 
 print("\nInventory Report:")
-for product, stock in inventory_dict.items(): 
-    print(f"Product: {product}, Stock: {stock}") 
-
-
+for product, stock in inventory_dict.items():
+    print(f"Product: {product}, Stock: {stock}")

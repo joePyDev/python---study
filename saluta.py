@@ -9,14 +9,9 @@ if len(sys.argv) > 1:
     print("Ciao,", nome)
 else:
     print("Non hai passato alcun nome!")
-    
-    
-    
+
+
 if nome != "":
     print(nome)
 else:
-    print("no name")    
-    
-    
-    
-    
+    print("no name")

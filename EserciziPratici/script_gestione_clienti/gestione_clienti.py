@@ -1,14 +1,16 @@
-import json 
+import json
 import os
 
-#----------------------------------------------------------------
+# ----------------------------------------------------------------
 """
 30/05/2026 
 
 beta test strumento gestione clienti basic
 G.P.
 """
-#----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def verifica_file_txt():
     percorso = "clienti.txt"
     if os.path.exists(percorso):
@@ -26,11 +28,14 @@ def verifica_file_txt():
         with open(percorso, "w", encoding="utf-8") as f:
             json.dump({}, f)
         return {}
-#----------------------------------------------------------------
-          
-#----------------------------------------------------------------        
+
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def aggiungi_cliente(clienti):
-    """ inserimento nuovi clienti """
+    """inserimento nuovi clienti"""
     if not clienti:
         nuovo_codice = 1
     else:
@@ -38,62 +43,82 @@ def aggiungi_cliente(clienti):
         chiavi_interi = [int(k) for k in clienti.keys()]
         nuovo_codice = max(chiavi_interi) + 1
     nome_cliente = input("Inserisci nome e cognome del cliente: ")
-    clienti[str(nuovo_codice)] = {"nome": nome_cliente.title(),"servizi": []} # crea una nova chiave
+    clienti[str(nuovo_codice)] = {
+        "nome": nome_cliente.title(),
+        "servizi": [],
+    }  # crea una nova chiave
     print(f"Cliente {nome_cliente} aggiunto con codice {nuovo_codice}.")
     return clienti
-#----------------------------------------------------------------
-    
-#----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def salva_clienti(clienti):
     if clienti is None:
         clienti = {}
     percorso = "clienti.txt"
     with open(percorso, "w", encoding="utf-8") as f:
         json.dump(clienti, f, indent=4)
-#----------------------------------------------------------------
 
-#----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def aggiungi_servizio(clienti):
-    """si aggiunge i servizi del caso, ritorna l'elenco aggiornato """
+    """si aggiunge i servizi del caso, ritorna l'elenco aggiornato"""
     codice = input("Inserire il codice cliente: ")
     if not codice in clienti:
         return clienti
     data = input("Data (YYYY-MM-DD): ")
     tipo = input("Tipo di servizio: ")
     costo = float(input("Costo: "))
-    servizio = {"data" : data, "tipo" : tipo , "costo" : costo}
+    servizio = {"data": data, "tipo": tipo, "costo": costo}
     clienti[codice]["servizi"].append(servizio)
     print(f"Servizio aggiunto al cliente {clienti[codice]['nome']} (codice {codice})")
     return clienti
-#----------------------------------------------------------------
-    
-#----------------------------------------------------------------    
+
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def elenco_clienti(clienti):
-    """ ritorna la lista dei clienti """
+    """ritorna la lista dei clienti"""
     if not clienti:
         print("Nessun cliente presente")
     else:
-        for codice , dati in clienti.items():
+        for codice, dati in clienti.items():
             print(f"Codice: {codice} - Nome: {dati['nome']}")
-#----------------------------------------------------------------
-    
-#----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def mostra_servizi(clienti):
     codice = input("Inserisci codice cliente: ")
     if not codice in clienti:
         print("Cliente non trovato")
         return clienti
-    else: 
+    else:
         servizi = clienti[codice]["servizi"]
         if not servizi:
             print("Nessun servizio registrato per questo cliente.")
-        for i , servizio in enumerate(servizi,start=1):
-            print(f"Servizio {i}: {servizio['data']} - {servizio['tipo']} - {servizio['costo']}€")
-#----------------------------------------------------------------
-             
-#----------------------------------------------------------------
+        for i, servizio in enumerate(servizi, start=1):
+            print(
+                f"Servizio {i}: {servizio['data']} - {servizio['tipo']} - {servizio['costo']}€"
+            )
+
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def modifica_nome_cliente(clienti):
-    """ modifica il nome del cliente passato dal dizionario """
+    """modifica il nome del cliente passato dal dizionario"""
     codice = input("Codice cliente da modificare: ")
     if codice in clienti:
         nome_vecchio = clienti[codice]["nome"]
@@ -103,25 +128,28 @@ def modifica_nome_cliente(clienti):
     else:
         print("codice cliente non trovato")
     return clienti
-#----------------------------------------------------------------
 
-#----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 def gestisci_servizi_clienti(clienti):
-    """ elimina modifica servizi in dizionario """
+    """elimina modifica servizi in dizionario"""
     codice = input("Inserisci il codice cliente: ")
     if codice not in clienti:
         print("Cliente non trovato")
         return clienti
-    
+
     servizi = clienti[codice]["servizi"]
     if not servizi:
         print("Nessun servizio registrato per questo cliente.")
         return clienti
-    
+
     # Mostra servizi
     for i, s in enumerate(servizi, start=1):
         print(f"{i}. {s['data']} - {s['tipo']} - {s['costo']}€")
-    
+
     try:
         idx = int(input(f"Scegli il servizio (1-{len(servizi)}): ")) - 1
         if idx < 0 or idx >= len(servizi):
@@ -130,9 +158,9 @@ def gestisci_servizi_clienti(clienti):
     except ValueError:
         print("Devi inserire un numero.")
         return clienti
-    
+
     azione = input("Cosa fare? (M)odifica, (E)limina, (A)nnulla: ").upper()
-    
+
     if azione == "M":
         # Modifica il servizio esistente
         servizio = servizi[idx]
@@ -153,9 +181,11 @@ def gestisci_servizi_clienti(clienti):
         print("Operazione annullata.")
     else:
         print("Azione non riconosciuta.")
-    
+
     return clienti
-#----------------------------------------------------------------
+
+
+# ----------------------------------------------------------------
 
 
 stringa_iniziale = """
@@ -178,7 +208,7 @@ while True:
     if scelta == "1":
         print("\n\n------------- Nuovo cliente --------------------------\n\n")
         clienti = aggiungi_cliente(clienti)
-        salva_clienti(clienti)   
+        salva_clienti(clienti)
         print("\n\n------------------------------------------------------\n\n")
 
     elif scelta == "2":
@@ -212,20 +242,11 @@ while True:
 
     elif scelta == "7":
         print("\n\n------------- Salva ed esci --------------------------\n\n")
-        salva_clienti(clienti)   # salva un'ultima volta
+        salva_clienti(clienti)  # salva un'ultima volta
         print("Uscita. Dati salvati.")
         break
     else:
         print("Opzione non valida")
 
 
-#------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
+# ------------------------------------------------------------------------------

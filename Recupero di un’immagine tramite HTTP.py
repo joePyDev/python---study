@@ -67,7 +67,7 @@ print("Header length", pos)
 print(picture[:pos].decode())
 
 # Elimina gli header: tiene solo il corpo (l'immagine), saltando i 4 byte \r\n\r\n.
-picture = picture[pos + 4:]
+picture = picture[pos + 4 :]
 
 # Apre (o crea) il file "stuff.jpg" in modalità scrittura binaria ('wb').
 fhand = open("stuff.jpg", "wb")

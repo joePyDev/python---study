@@ -1,6 +1,3 @@
-
-
-
 import os
 
 cartella = input("Percorso cartella: ").strip()
@@ -18,18 +15,16 @@ contatore = 1
 for vecchio_nome in foto:
     # Preleva l'estensione originale con il punto
     nome_senza_ext, est = os.path.splitext(vecchio_nome)
-    print(nome_senza_ext,est)
-    
+    print(nome_senza_ext, est)
+
     # Crea il nuovo nome: base + underscore + numero + estensione originale
     nuovo_nome = f"{nuovo_nome_base}_{contatore}{est}"
-    
+
     vecchio_path = os.path.join(cartella, vecchio_nome)
     nuovo_path = os.path.join(cartella, nuovo_nome)
-    
+
     os.rename(vecchio_path, nuovo_path)
     print(f"{vecchio_nome}  →  {nuovo_nome}")
     contatore += 1
 
 print("Fatto!")
-
-

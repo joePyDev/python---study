@@ -1,5 +1,5 @@
-""" 
-Esercizio 1 
+"""
+Esercizio 1
 
 Scrivi un programma che usi input per chiedere all’utente il proprio
 nome e poi dia loro il benvenuto
@@ -14,7 +14,6 @@ print(f"Hello {name}")
 
 
 """
-
 
 """
 Esercizio 2
@@ -33,8 +32,6 @@ pay = float(hours) * float(rate)
 print(f"\nEnter Hours: {hours}\nEnter Rate: {rate}\nPay: {pay:.2f}")
 
 """
-
-
 
 
 """
@@ -68,10 +65,6 @@ print(A)
 
 
 """
-
-
-
-
 
 
 """
@@ -138,7 +131,6 @@ print(f"Ore lavorate: {ore_lavorate}\nPaga oraria: {paga_oraria}\nRetribuzione: 
 """
 
 
-
 """
 Esercizio 6
 
@@ -199,7 +191,6 @@ else:
 """
 
 
-
 """
 Esercizio 7
 
@@ -245,10 +236,6 @@ print(ret)
 
 
 """
-
-
-
-
 
 
 """
@@ -298,7 +285,6 @@ print(X)
 
 
 """
-
 
 
 """
@@ -369,8 +355,6 @@ print(f"numero piu piccolo {numero_piu_piccolo}")
 """
 
 
-
-
 """
 esercizio 11
 Scrivi un ciclo while che inizi dall’ultimo carattere della stringa e
@@ -388,8 +372,6 @@ while indice >= 0:
     indice -= 1
 
 """
-
-
 
 
 """
@@ -438,8 +420,6 @@ lettera = stringa.count("a")
 print(lettera)
 
 """
-
-
 
 
 r"""
@@ -1375,35 +1355,3 @@ print(f"Numero di paragrafi nella pagina: {conteggio}")
 
 
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

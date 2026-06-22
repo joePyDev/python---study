@@ -1,7 +1,7 @@
 """
 Alcuni moduli piu comuni:
-    
-    
+
+
 math
 
 random
@@ -17,17 +17,17 @@ con import "modulo" si aggiunge la libreria '
 """
 
 # esempio:
-    
+
 import math
 
 # la funzione si richiama con la notazione con il punto:
 # nome modulo . nome funzione
 
-# module_name.function_name() 
+# module_name.function_name()
 
 
-#$ radice quadrata
-radice_quadrata =  math.sqrt(36)
+# $ radice quadrata
+radice_quadrata = math.sqrt(36)
 print(radice_quadrata)
 
 
@@ -78,7 +78,6 @@ print(cos_value)  # 0.766044443118978
 """
 
 
-
 import math
 
 angle_degrees = 40
@@ -87,7 +86,7 @@ angle_radians = math.radians(angle_degrees)
 sine_value = math.sin(angle_radians)
 cos_value = math.cos(angle_radians)
 
-print(sine_value) # 0.6427876096865393
+print(sine_value)  # 0.6427876096865393
 print(cos_value)  # 0.766044443118978
 
 
@@ -120,9 +119,3 @@ utile se vogliamo eseguire del codice solo se è in
 esecuzione come programma principale
 
 """
-
-
-
-
-
-

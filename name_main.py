@@ -15,13 +15,16 @@ quando lo script è lanciato come programma principale, non quando viene importa
 # Definizione di funzioni "utili" (il modulo)
 # ---------------------------
 
+
 def saluta(nome):
     """Restituisce un messaggio di saluto."""
     return f"Ciao, {nome}!"
 
+
 def quadrato(x):
     """Calcola il quadrato di un numero."""
     return x * x
+
 
 # ---------------------------
 # Codice di test / dimostrativo
@@ -33,7 +36,7 @@ def quadrato(x):
 print(f"[{__name__}] Il modulo è stato caricato.")
 
 # Il blocco successivo viene eseguito SOLO se lo script è avviato direttamente.
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("=" * 50)
     print("Questo codice viene eseguito SOLO in esecuzione diretta.")
     print("Se stai importando questo file, non vedrai queste righe.\n")
@@ -48,5 +51,7 @@ if __name__ == '__main__':
     print("=" * 50)
 else:
     # Questo ramo si esegue quando il file è importato (__name__ != '__main__')
-    print(f"[{__name__}] Il modulo è stato importato. "
-          "Le funzioni sono disponibili ma il test non viene eseguito.")
+    print(
+        f"[{__name__}] Il modulo è stato importato. "
+        "Le funzioni sono disponibili ma il test non viene eseguito."
+    )

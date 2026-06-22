@@ -1,4 +1,3 @@
-
 # espressioni regolari:
 
 
@@ -25,7 +24,7 @@ for line in hand:
         
 """
 
-# * 0 o piu volte, greedy 
+# * 0 o piu volte, greedy
 # + 1 o piu volte, greedy
 # *? : Zero o più caratteri, ma il minor numero possibile. lazy
 # +? : Uno o più caratteri, ma il minor numero possibile. lazy
@@ -33,11 +32,8 @@ for line in hand:
 hand = open(r"mbox-short.txt")
 for line in hand:
     line = line.rstrip()
-    if re.search("^From:.+@",line):
+    if re.search("^From:.+@", line):
         print(line)
-
-
-
 
 
 r"""
@@ -64,8 +60,6 @@ $        Matches the end of the line
 
 # funzione serch()
 import re
-
-
 
 r"""
 
@@ -121,30 +115,26 @@ for line in hand:
 """
 
 
+hand = open(r"mbox-short.txt")
+for line in hand:
+    line = line.rstrip()
+    x = re.findall("^X-\S*: [0-9.]+", line)
+    if len(x) > 0:
+        print(x)
 
 
 hand = open(r"mbox-short.txt")
 for line in hand:
     line = line.rstrip()
-    x = re.findall("^X-\S*: [0-9.]+",line)
+    x = re.findall("^X\S*: ([0-9.]+)", line)
     if len(x) > 0:
         print(x)
-
-
-
-
-hand = open(r"mbox-short.txt")
-for line in hand:
-    line = line.rstrip()
-    x = re.findall("^X\S*: ([0-9.]+)",line)
-    if len(x) > 0:
-        print(x)
-
 
 
 # il backlash permette di cercare il carattere stesso:
-    
+
 import re
+
 X = "abbiamo ricevuto $10000 di biscotti"
 y = re.findall("\$[0-9]+", X)
 
@@ -152,15 +142,13 @@ y = re.findall("\$[0-9]+", X)
 print(help(re))
 
 
-
-x = 'From: Using the : character'
-y = re.findall('^F.+:', x)
+x = "From: Using the : character"
+y = re.findall("^F.+:", x)
 print(y)
 
 
-
 B = "From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008"
-C = re.search('\S+?@\S+',B)
+C = re.search("\S+?@\S+", B)
 
 
 print(C)

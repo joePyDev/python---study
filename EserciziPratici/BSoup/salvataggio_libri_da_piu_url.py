@@ -1,9 +1,6 @@
-
-
 # https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html
 
-# ispeziona su pulsante next : 
-
+# ispeziona su pulsante next :
 
 
 """
@@ -20,7 +17,6 @@
 4. Dopo il ciclo, salva la lista in CSV
 """
 
-
 import os
 
 import requests
@@ -30,12 +26,12 @@ import csv
 
 
 def apertura_url(url):
-    """ si passa l'url , richiesta ,ritorna la zuppa senno none """
+    """si passa l'url , richiesta ,ritorna la zuppa senno none"""
     r = requests.get(url)
     if r.status_code != 200:
         print("errore richiesta url")
         return
-    soup = BeautifulSoup(r.text,"html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
     return soup
 
 
@@ -43,45 +39,44 @@ def collezione_libri(soup, url_corrente):
     lista_libri = []
     # Trova tutti i contenitori dei libri (article con classe product_pod)
     articoli = soup.find_all("article", class_="product_pod")
-    
+
     for articolo in articoli:
         # Estrai titolo (dall'attributo title del tag a dentro h3)
         titolo_tag = articolo.find("h3").find("a")
         titolo = titolo_tag.get("title")
-        
+
         # Estrai link relativo e trasformalo in assoluto
         link_relativo = titolo_tag.get("href")
         link = urljoin(url_corrente, link_relativo)
-        
+
         # Estrai prezzo (p con classe price_color), togli il simbolo £
         prezzo_tag = articolo.find("p", class_="price_color")
         prezzo = prezzo_tag.text.replace("£", "")  # oppure prezzo[1:]
-        
+
         # Estrai disponibilità (p con classe instock availability)
         disponibilita_tag = articolo.find("p", class_="instock availability")
         disponibilita = disponibilita_tag.text.strip()
-        
+
         # Crea un dizionario con i dati del libro
         libro_info = {
             "titolo": titolo,
             "prezzo": prezzo,
             "disponibilita": disponibilita,
-            "link": link
+            "link": link,
         }
         lista_libri.append(libro_info)
-    
+
     return lista_libri
 
 
-def cerca_url_pulsante(soup,url_corrente):
-    pulsante_next = soup.find("li" , class_="next")
+def cerca_url_pulsante(soup, url_corrente):
+    pulsante_next = soup.find("li", class_="next")
     if not pulsante_next:
         return
     href_relativo = pulsante_next.find("a")
     nuovo_url = urljoin(url_corrente, href_relativo.get("href"))
     return nuovo_url
 
-   
 
 url = "https://books.toscrape.com/catalogue/category/books/fantasy_19/index.html"
 contatore = 0
@@ -89,33 +84,24 @@ tutti_libri = []
 
 
 while True:
-    #----------------------------------------------------------------------
-    soup = apertura_url(url) 
-    if not soup: break
-    tutti_libri.extend(collezione_libri(soup,url))
+    # ----------------------------------------------------------------------
+    soup = apertura_url(url)
+    if not soup:
+        break
+    tutti_libri.extend(collezione_libri(soup, url))
     prossimo_url = cerca_url_pulsante(soup, url)
     prossimo_url = cerca_url_pulsante(soup, url)
     if not prossimo_url:
         break
     url = prossimo_url
-    #----------------------------------------------------------------------
-    
+    # ----------------------------------------------------------------------
+
 
 with open("fantasy_books.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=["titolo", "prezzo", "disponibilita", "link"])
     writer.writeheader()
     writer.writerows(tutti_libri)
 
-print(f"Salvati {len(tutti_libri)} libri in fantasy_books.csv") 
-   
+print(f"Salvati {len(tutti_libri)} libri in fantasy_books.csv")
+
 print("Il CSV sarà salvato in:", os.getcwd())
-
-
-
-
-    
-    
-    
-    
-    
-    

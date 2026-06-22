@@ -2,25 +2,25 @@
 [espressione for elemento in iterabile]
 
 Prendi ogni elemento dall'iterabile,
-esegui su di esso l'espressione e metti 
+esegui su di esso l'espressione e metti
 il risultato in una nuova lista.
 
 """
 
-numeri = [1,2,3,4,5,6]
+numeri = [1, 2, 3, 4, 5, 6]
 
 # ciclo classico
 
 quadrati_classici = []
 for n in numeri:
-    quadrati_classici.append(n ** 2)
-    
+    quadrati_classici.append(n**2)
+
 print(quadrati_classici)
- 
+
 
 # Con list comprehension (molto più diretta)
 
-quadrati = [n ** 2 for n in numeri]
+quadrati = [n**2 for n in numeri]
 print(quadrati)
 
 
@@ -30,7 +30,7 @@ print(X)
 
 
 # Logica condizionale (con if-else nell'espressione)
-# Se vogliamo trasformare l'elemento in base a una condizione, 
+# Se vogliamo trasformare l'elemento in base a una condizione,
 # l'if-else va messo prima del for.
 
 
@@ -50,8 +50,8 @@ Regola mnemoniche fondamentali:
 """
 
 
-# 4 cicli annidiati 
-matrice = [[1,2,3] , [4,5,6] , [7,8,9]]
+# 4 cicli annidiati
+matrice = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 piatta = [numero for riga in matrice for numero in riga]
 
 
@@ -65,15 +65,11 @@ print(tabella)  # Output: [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 # Ogni riga è un oggetto indipendente in memoria.
 
 
-
-
-
 coordinate = [(x, y) for x in range(3) for y in range(3)]
-print(coordinate) 
+print(coordinate)
 
 # che corrisponde a:
 coordinate = []
-for x in range(3):          # <-- Primo for (ESTERNO)
-    for y in range(3):      # <-- Secondo for (INTERNO)
+for x in range(3):  # <-- Primo for (ESTERNO)
+    for y in range(3):  # <-- Secondo for (INTERNO)
         coordinate.append((x, y))
-

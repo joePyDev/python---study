@@ -9,15 +9,13 @@ print(len(r.text))
 print(r.text[:400])"""
 
 
-
-
-with open("mio_sito.html","w") as file:
+with open("mio_sito.html", "w") as file:
     file.write(r.text)
-    
+
 with open("mio_sito.html") as file:
     html_content = file.read()
-    
-soup = BeautifulSoup(html_content,"html.parser")
+
+soup = BeautifulSoup(html_content, "html.parser")
 
 print(soup.find("title").text)
 
@@ -35,8 +33,3 @@ lista_libri = soup.find_all("h3")
 for libro in lista_libri:
     indice = indice + 1
     print(f"indice libro n:{indice}", libro.get_text())
-
-
-
-
-

@@ -6,17 +6,12 @@ for c in word:
         d[c] = 1
     else:
         d[c] = d[c] + 1
-print(d)        
-
-
+print(d)
 
 
 # con get() possiamo ottimizzare l'istogramma:
 word = "fruttivendolo"
 d = dict()
 for c in word:
-    d[c] = d.get(c,0) + 1
-print(d)   
-
-
-
+    d[c] = d.get(c, 0) + 1
+print(d)

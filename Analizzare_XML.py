@@ -1,25 +1,23 @@
 import xml.etree.ElementTree as ET
 
-data = '''
+data = """
 <person>
   <name>Chuck</name>
   <phone type="intl">
     +1 734 303 4456
   </phone>
   <email hide="yes" />
-</person>'''
+</person>"""
 
-tree = ET.fromstring(data) # convertiamo da stringa XML a albero con nodi
+tree = ET.fromstring(data)  # convertiamo da stringa XML a albero con nodi
 
-print('Name:', tree.find('name').text)
-print('Attr:', tree.find('email').get('hide'))
-
-
+print("Name:", tree.find("name").text)
+print("Attr:", tree.find("email").get("hide"))
 
 
 # Cicli con i nodi degli XML
 
-input = '''
+input = """
 <stuff>
   <users>
     <user x="2">
@@ -31,17 +29,14 @@ input = '''
       <name>Brent</name>
     </user>
   </users>
-</stuff>'''
+</stuff>"""
 
 stuff = ET.fromstring(input)
-lst = stuff.findall('users/user')
-print('User count:', len(lst))
-print("Debug >>>>>>> ",lst)
+lst = stuff.findall("users/user")
+print("User count:", len(lst))
+print("Debug >>>>>>> ", lst)
 
 for item in lst:
-    print('Name', item.find('name').text)
-    print('Id', item.find('id').text)
-    print('Attribute', item.get('x'))
-    
-    
-    
+    print("Name", item.find("name").text)
+    print("Id", item.find("id").text)
+    print("Attribute", item.get("x"))

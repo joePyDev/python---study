@@ -1,20 +1,19 @@
-
 """
 Ricorsione funzioni:
-Significa che una funzione chiama se stessa. 
+Significa che una funzione chiama se stessa.
 Questo ha il vantaggio di consentire di iterare sui
 dati per raggiungere un risultato.
 """
 
 
-
 def tri_recursion(k):
-  if(k > 0):
-    result = k + tri_recursion(k - 1) # 4 + 6 | 3 + 3 | 2 + 1 | 1 + 0
-    print(result)
-  else:
-    result = 0
-  return result
+    if k > 0:
+        result = k + tri_recursion(k - 1)  # 4 + 6 | 3 + 3 | 2 + 1 | 1 + 0
+        print(result)
+    else:
+        result = 0
+    return result
+
 
 print("Recursion Example Results:")
 tri_recursion(4)

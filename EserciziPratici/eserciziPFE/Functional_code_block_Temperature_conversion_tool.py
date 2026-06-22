@@ -1,4 +1,3 @@
-
 """
 Tips:
 Remember these formulas:
@@ -12,29 +11,25 @@ Make sure you are returning values as floating-point numbers; do not round.
 """
 
 
-
 def celsius_to_fahrenheit(celsius):
-    fahrenheit = (celsius * 9/5) + 32
+    fahrenheit = (celsius * 9 / 5) + 32
     return fahrenheit
 
 
-def fahrenheit_to_celsius(fahrenheit): 
-    celsius = (fahrenheit - 32) * 5/9
+def fahrenheit_to_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5 / 9
     return celsius
 
 
+def convert_temperature(temperature, unit):
 
-def convert_temperature(temperature, unit): 
-    
     if unit == "C":
         ctf = celsius_to_fahrenheit(float(temperature))
         return ctf
-    
-    elif unit =="F":
+
+    elif unit == "F":
         ftc = fahrenheit_to_celsius(float(temperature))
         return ftc
-    
-
 
 
 temperature_c = 25

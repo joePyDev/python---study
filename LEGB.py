@@ -11,28 +11,26 @@ Globale (G): Successivamente, cerca nell'ambito globale, ovvero nelle variabili 
 Integrato (B): Infine, controlla lo spazio dei nomi integrato di Python per funzioni e oggetti predefiniti come print, list, ecc.
 """
 
-
-
-
 # ambito locale:
-    
+
+
 def saluta_locale():
     # 'messaggio' è una variabile LOCALE: esiste solo dentro questa funzione
     messaggio = "Ciao dal ambito locale"
     print("Dentro la funzione:")
     print(messaggio)
-    
-saluta_locale()    
-    
+
+
+saluta_locale()
+
 
 # Proviamo ad usare 'messaggio' fuori dalla funzione
 try:
     print("\nFuori dalla funzione saluta:")
-    print(messaggio)   # -> ERRORE: NameError: name 'messaggio' is not defined
+    print(messaggio)  # -> ERRORE: NameError: name 'messaggio' is not defined
 except NameError as e:
     print(f"ERRORE previsto: {e}")
-    
-    
+
 
 # ESEMPIO 2 - Ambito Globale (G)
 
@@ -42,17 +40,19 @@ nome = "Alice"
 
 def saluta_globale():
     print("dentro saluta_globale")
-    print("ciao",nome)     # Python non trova 'nome' nel locale,
-                           # passa al Enclosing (assente),
-                           # poi al globale: lo trova qui.
+    print("ciao", nome)  # Python non trova 'nome' nel locale,
+    # passa al Enclosing (assente),
+    # poi al globale: lo trova qui.
+
 
 def cambia_nome():
     # Se proviamo a MODIFICARE la variabile globale,
     # Python, per default, crea una nuova variabile LOCALE
     # che "oscura" quella globale.
-    nome = "Bob"           # Questa è LOCALE, non tocca la globale!
+    nome = "Bob"  # Questa è LOCALE, non tocca la globale!
     print("Dentro cambia_nome:")
     print("nome locale:", nome)
+
 
 def cambia_nome_globale():
     # Per modificare DAVVERO la globale, dobbiamo dichiararla 'global'
@@ -60,6 +60,7 @@ def cambia_nome_globale():
     nome = "Charlie"
     print("Dentro cambia_nome_globale:")
     print("nome (globale):", nome)
+
 
 # --- Esecuzione dei test ---
 
@@ -71,19 +72,17 @@ saluta_globale()
 
 print("\n2. Chiamo cambia_nome() (senza global):")
 cambia_nome()
-print("Dopo cambia_nome(), globale nome =", nome)   # Resta 'Alice'
+print("Dopo cambia_nome(), globale nome =", nome)  # Resta 'Alice'
 
 print("\n3. Chiamo cambia_nome_globale() (con global):")
 cambia_nome_globale()
-print("Dopo cambia_nome_globale(), globale nome =", nome)   # Ora 'Charlie'
+print("Dopo cambia_nome_globale(), globale nome =", nome)  # Ora 'Charlie'
 
-print("fine globale il nome è modificato in",nome,"\n")
-
-
-
+print("fine globale il nome è modificato in", nome, "\n")
 
 
 # ESEMPIO 3 - Funzione contenitore (E), funzioni annidate
+
 
 def esterna():
     # 'saluto' è definita nella funzione esterna.
@@ -122,12 +121,11 @@ def esterna():
     interna_modifica_corretta()
     print("saluto dopo interna_modifica_corretta():", saluto)  # Modificato!
 
+
 # Esecuzione
 print("=== INIZIO PROGRAMMA ===")
 esterna()
 print("=== FINE ===")
-
-
 
 
 # ESEMPIO 4 - Livello Integrato (B)
@@ -139,14 +137,16 @@ print("Ciao dal livello Integrato!")
 numeri = [1, 2, 3]
 print("La lista ha", len(numeri), "elementi.")
 
+
 # Possiamo OSCURARE un nome integrato definendone uno nostro
 # nei livelli precedenti. QUI È UN ERRORE DA EVITARE!
 # Esempio: definiamo una variabile locale 'print' che nasconde la funzione built-in.
 def funzione_che_oscura_print():
     # 'print' ora è una stringa LOCALE, non più la funzione integrata.
-    print = "Ciao"   #  OSCURA il built-in 'print' a livello Locale
+    print = "Ciao"  #  OSCURA il built-in 'print' a livello Locale
     # print("Questo darebbe errore!")   # perché 'print' ora è una stringa, non chiamabile.
     print("Qui non stampo, perché print è una stringa.")  # Questo riga darebbe errore
+
 
 # Per evitare l'errore, NON eseguiamo la funzione. Ti spiego solo il concetto.
 
@@ -156,15 +156,6 @@ def funzione_che_oscura_print():
 # Per vedere TUTTI i nomi integrati:
 print("\nNomi integrati disponibili (primi 20):")
 import builtins
+
 nomi_integrati = dir(builtins)
 print(nomi_integrati[:20])  # Mostriamo i primi 20 nomi per dare un'idea
-
-
-
-
-
-
-
-
-
-

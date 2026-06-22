@@ -3,15 +3,12 @@ Urllib gestisce tutti i dettagli del ptrotocollo HTTP
 
 """
 
-
 import urllib.request
+
 fhand = urllib.request.urlopen("http://data.pr4e.org/romeo.txt")
 
 for line in fhand:
     print(line.decode().strip())
-    
-    
-
 
 
 #  calcolare la frequenza di ogni parola presente nel file
@@ -23,5 +20,5 @@ counts = dict()
 for line in fhand:
     words = line.decode().split()
     for word in words:
-        counts[word] = counts.get(word,0) + 1
-print(counts)        
+        counts[word] = counts.get(word, 0) + 1
+print(counts)

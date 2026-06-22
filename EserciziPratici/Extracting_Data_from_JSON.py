@@ -1,9 +1,9 @@
- # Extracting Data from JSON
+# Extracting Data from JSON
 
 """
-l programma richiederà un URL, 
-leggerà i dati JSON da quell'URL utilizzando urllib, 
-quindi analizzerà ed estrarrà il numero di commenti dai dati JSON, 
+l programma richiederà un URL,
+leggerà i dati JSON da quell'URL utilizzando urllib,
+quindi analizzerà ed estrarrà il numero di commenti dai dati JSON,
 calcolerà la somma dei numeri nel file e inserirà la somma qui sotto.
 
 """
@@ -22,14 +22,11 @@ if len(url) < 1:
 apertura_url = urllib.request.urlopen(url)
 data = apertura_url.read()
 contenuto_json = json.loads(data)
-    
+
 lista_valori = []
 for chiave in contenuto_json["comments"]:
     lista_valori.append(chiave["count"])
-    
-    
-lista_valori = sum(lista_valori)   
-print(lista_valori)  
-    
-    
-    
+
+
+lista_valori = sum(lista_valori)
+print(lista_valori)

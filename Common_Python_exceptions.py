@@ -11,7 +11,8 @@ attenzione a:
 -external module import
 
 """
-#-------------------------------------------------------------------
+
+# -------------------------------------------------------------------
 
 """
 # TypeError
@@ -21,14 +22,17 @@ attenzione a:
 -Problemi di ereditarietà delle classi
 
 """
-def calculate_area(length, width): 
-    if not isinstance(length, (int, float)) or not isinstance(width, (int, float)): 
-        raise TypeError("Length and width must be numbers.") 
+
+
+def calculate_area(length, width):
+    if not isinstance(length, (int, float)) or not isinstance(width, (int, float)):
+        raise TypeError("Length and width must be numbers.")
     return length * width
 
-print(calculate_area(5, 'three')) # TypeError: Length and width must be numbers.
 
-#-------------------------------------------------------------------
+print(calculate_area(5, "three"))  # TypeError: Length and width must be numbers.
+
+# -------------------------------------------------------------------
 
 """
 IndexError
@@ -48,8 +52,8 @@ try:
     print(my_list[0])
 except IndexError:
     print("The list is empty.")
-    
-#-------------------------------------------------------------------
+
+# -------------------------------------------------------------------
 
 """
 # KeyError
@@ -67,22 +71,14 @@ try:
 except KeyError:
     print("Key not found in dictionary.")
 
-#-------------------------------------------------------------------
+# -------------------------------------------------------------------
 
 
 # estione corretta delle eccezioni
 import logging
 
-my_dict = {"a":1 , "b":2}
+my_dict = {"a": 1, "b": 2}
 try:
     print(my_dict["c"])
 except KeyError as e:
-    logging.error(f"KeyError incontrato {e}")    
-
-
-
-
-
-
-
-
+    logging.error(f"KeyError incontrato {e}")

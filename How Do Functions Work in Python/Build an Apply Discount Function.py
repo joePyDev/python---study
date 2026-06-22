@@ -10,11 +10,9 @@ def apply_discount(price, discount):
     return price * (1 - discount / 100)
 
 
-
-
 prezzo = 150
 sconto = 10
 
-total = apply_discount(price = prezzo, discount = sconto)  # keyword argument
+total = apply_discount(price=prezzo, discount=sconto)  # keyword argument
 
-print(f"Total: {total}$ " )
+print(f"Total: {total}$ ")

@@ -102,8 +102,6 @@ string.translate(table)
 
 """
 
-
-
 # help(str.metodo)
 
 
@@ -129,7 +127,7 @@ print(X)
 # Restituisce il numero di volte in cui il valore  compare nella stringa:
 txt = "amo la frutta , in particolare le mele"
 X = txt.count("frutta")
-print(X)    
+print(X)
 
 
 # encode89
@@ -140,7 +138,7 @@ print(X)
 
 
 # endswith89
-# Verifica se la stringa termina con il simbolo/carattere indicato: 
+# Verifica se la stringa termina con il simbolo/carattere indicato:
 # string.endswith(value, start, end)
 txt = "hello, welcome to my word"
 X = txt.endswith("word")
@@ -148,9 +146,9 @@ print(X)
 
 
 # expandtabs()
-# Il metodo expandtabs() in Python serve a sostituire i 
-#caratteri di tabulazione (\t) all'interno di una stringa con 
-#degli spazi bianchi.
+# Il metodo expandtabs() in Python serve a sostituire i
+# caratteri di tabulazione (\t) all'interno di una stringa con
+# degli spazi bianchi.
 txt = "H\te\tl\to"
 X = txt.expandtabs(2)
 print(X)
@@ -164,7 +162,7 @@ print(X)
 
 
 # format()
-#Permette di inserire valori (variabili, numeri, testi) all'interno di
+# Permette di inserire valori (variabili, numeri, testi) all'interno di
 # una stringa "modello" usando le parentesi graffe {} come segnaposto.
 testo = "Ciao, mi chiamo {} e ho {} anni."
 print(testo.format("Alice", 25))
@@ -176,7 +174,7 @@ print(X)
 
 # format_map()
 # accetta valori da un dizionario
-dati = {"nome":"pippo","anni":25,"lavoro":"Developer"}
+dati = {"nome": "pippo", "anni": 25, "lavoro": "Developer"}
 txt = "Il mio nome è {nome}, ho {anni} e faccio il {lavoro}"
 txt = txt.format_map(dati)
 print(txt)
@@ -195,22 +193,22 @@ print(pos)
 
 print("pippo53".isalnum())
 print("pippo".isalnum())
-print("pippo 25".isalnum()) # false
-print("pippoç°ç°°".isalnum()) # false
+print("pippo 25".isalnum())  # false
+print("pippoç°ç°°".isalnum())  # false
 
 
 # isalpha()
 # restituisce True solo se la stringa è composta esclusivamente da lettere.
 # Solo lettere
-print("Pippo".isalpha())      # True
-print("nì".isalpha())         # True (le accentate sono lettere)
+print("Pippo".isalpha())  # True
+print("nì".isalpha())  # True (le accentate sono lettere)
 
 # Con numeri
-print("Pippo25".isalpha())    # False (il '25' lo fa fallire)
+print("Pippo25".isalpha())  # False (il '25' lo fa fallire)
 
 
 # esempio
-nome =("Inserisci il tuo nome: ") # input utente
+nome = "Inserisci il tuo nome: "  # input utente
 
 if nome.isalpha():
     print("Nome accettato.")
@@ -218,11 +216,10 @@ else:
     print("Errore: il nome non può contenere numeri o spazi.")
 
 
-
 # isdecimal()
 # controlla se la stringa è composta interamente da caratteri decimali(0-9)
 print("123".isdecimal())
-print("10.5".isdecimal())   # False (il punto non è un decimale)
+print("10.5".isdecimal())  # False (il punto non è un decimale)
 
 
 # isdigit()
@@ -234,14 +231,12 @@ x = txt.isdigit()
 print(x)
 
 
-
 # isidentifier()#
-#Una stringa è considerata un identificatore valido se contiene 
-#solo lettere alfanumeriche (a, b, c) e (0-9) o trattini bassi (_). 
+# Una stringa è considerata un identificatore valido se contiene
+# solo lettere alfanumeriche (a, b, c) e (0-9) o trattini bassi (_).
 txt = "Demo"
 X = txt.isidentifier()
 print(X)
-
 
 
 # islower()
@@ -256,7 +251,6 @@ print(X)
 txt = "12345"
 X = txt.isnumeric()
 print(X)
-
 
 
 # isprintable()
@@ -288,13 +282,11 @@ X = txt.isupper()
 print(X)
 
 
-
 # join()
 # prende tutti gli elementi di un iterabile e li unisce in un'unica stringa.
-my_tuple = ("jon", "mary","jane")
+my_tuple = ("jon", "mary", "jane")
 X = " . ".join(my_tuple)
-print(X) # jon . mary . jane
-
+print(X)  # jon . mary . jane
 
 
 # ljust()
@@ -303,8 +295,7 @@ print(X) # jon . mary . jane
 # string.ljust(length, character)
 txt = "frutto"
 X = txt.ljust(20)
-print(X,"20 caratteri di distanza")
-
+print(X, "20 caratteri di distanza")
 
 
 # lower()
@@ -318,14 +309,14 @@ print((X))
 # rimuove tutti i caratteri iniziali (lo spazio è il carattere iniziale predefinito da rimuovere).
 txt = "    hello my Friends"
 X = txt.lstrip()
-print(X)   
+print(X)
 
 
 # maketrans()
 # metodo restituisce una tabella di mappatura che può essere
 # utilizzata con il metodo per sostituire i caratteri specificati.
 txt = "Hallo sam"
-X = txt.maketrans("S","P","l")
+X = txt.maketrans("S", "P", "l")
 print(X)
 
 # translate()
@@ -333,10 +324,10 @@ print(X)
 # vengono sostituiti con il carattere descritto in un dizionario
 # o in una tabella di corrispondenza.
 
-print(txt.translate(X)) # gli abbiamo passato i valori creati da maketrans
+print(txt.translate(X))  # gli abbiamo passato i valori creati da maketrans
 
-#use a dictionary with ascii codes to replace 83 (S) with 80 (P):
-mydict = {83:  80}
+# use a dictionary with ascii codes to replace 83 (S) with 80 (P):
+mydict = {83: 80}
 txt = "Hello Sam!"
 print(txt.translate(mydict))
 
@@ -352,7 +343,7 @@ print(X)
 # sostituisce una frase specificata con un'altra frase specificata.
 
 txt = "mi piace andare in bici"
-X = txt.replace("bici","moto")
+X = txt.replace("bici", "moto")
 print(X)
 
 
@@ -367,7 +358,7 @@ X = txt.rfind(("pippo"))
 print(X)
 
 
-#rindex()
+# rindex()
 #  individua l'ultima occorrenza del valore specificato.
 txt = "mi casa , su casa"
 X = txt.rindex(("casa"))
@@ -379,12 +370,11 @@ print(X)
 
 
 # rjust()
-# il metodo allineerà a destra la stringa, utilizzando un carattere 
+# il metodo allineerà a destra la stringa, utilizzando un carattere
 # specificato (lo spazio è il valore predefinito) come carattere di riempimento.
 txt = "mela"
-X = txt.rjust(15,"*")
+X = txt.rjust(15, "*")
 print(X)
-
 
 
 # rpartition()
@@ -395,14 +385,11 @@ X = txt.rpartition("frutta")
 print(X)
 
 
-
-
 # rsplit()
 # suddivide una stringa in una lista, partendo da destra.
 txt = "apple, banana, cherry"
-X = txt.rsplit(", ")# esegui il taglio in corrispondenza di ", "
+X = txt.rsplit(", ")  # esegui il taglio in corrispondenza di ", "
 print(X)
-
 
 
 # rstrip()
@@ -428,7 +415,6 @@ X = txt.splitlines()
 print(X)
 
 
-
 # startswith()
 # metodo restituisce True se la stringa inizia con il valore specificato, altrimenti False.
 txt = "Hello word"
@@ -443,14 +429,11 @@ X = txt.strip()
 print(X)
 
 
-
-
 # swapcase()
 # restituisce una stringa in cui tutte le lettere maiuscole sono minuscole e viceversa.
 txt = "BuonGiorno mondo SOno MolTO ImPeGnAtO"
 X = txt.swapcase()
 print(X)
-
 
 
 # title()
@@ -460,7 +443,6 @@ X = txt.title()
 print(X)
 
 
-
 # upper()
 # restituisce una stringa in cui tutti i caratteri sono maiuscoli.
 txt = "sono una stringa minuscola"
@@ -468,30 +450,8 @@ X = txt.upper()
 print(X)
 
 
-
 # zfill()
 # aggiunge degli zeri (0) all'inizio della stringa, fino a raggiungere la lunghezza specificata.
 txt = "50"
 X = txt.zfill(5)
 print(X)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

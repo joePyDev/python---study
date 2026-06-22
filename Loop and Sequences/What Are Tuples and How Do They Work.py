@@ -1,5 +1,5 @@
 # Una tupla è un tipo di dato Python utilizzato per creare una sequenza ordinata di valori.
-developer = ("alice",34,"rust dev")
+developer = ("alice", 34, "rust dev")
 
 # le tuple sono immutabili, e non possono essere modificate
 
@@ -10,10 +10,10 @@ print(developer[1])
 print(developer[-1])
 
 
-#☺ Se si tenta di inserire un indice che supera o
+# ☺ Se si tenta di inserire un indice che supera o
 # è uguale alla lunghezza della tupla, si riceverà un errore IndexError
 
-numbers = (1,2,3,4,5,6)
+numbers = (1, 2, 3, 4, 5, 6)
 # print(numbers[6]) # tuple index out of range
 
 
@@ -23,16 +23,15 @@ print(tuple(lettere))
 
 
 # verifica elemento nella tupla con in:
-numeri = (1,2,3,4,5,6,7,8,9)
+numeri = (1, 2, 3, 4, 5, 6, 7, 8, 9)
 print(1 in numeri)
-
 
 
 # È possibile estrarre gli elementi da una tupla proprio come si fa con le liste:
 
-soggetto = ("pippo","muratore",35)
+soggetto = ("pippo", "muratore", 35)
 
-nome , professione , eta = soggetto
+nome, professione, eta = soggetto
 
 print(nome)
 print(professione)
@@ -40,21 +39,18 @@ print(eta)
 
 # raccogliere elementi rimanenti:
 
-valori = (1,2,3,4,5,6,7,8)
-valori2 , *resto = valori
+valori = (1, 2, 3, 4, 5, 6, 7, 8)
+valori2, *resto = valori
 
-print(valori2 , resto)
+print(valori2, resto)
 
 
 # estrarre elementi con slicing:
-cibi = ("mela","pollo","maiale","limone")
+cibi = ("mela", "pollo", "maiale", "limone")
 print(cibi[:2])
 
 
-
-# NB: Se si desidera rimuovere un elemento da una tupla, ciò non è possibile perché le tuple sono immutabili. 
-
-
+# NB: Se si desidera rimuovere un elemento da una tupla, ciò non è possibile perché le tuple sono immutabili.
 
 
 """
@@ -63,15 +59,3 @@ aggiungere, rimuovere e aggiornare, allora dovresti usare una lista.
 Se invece sai di lavorare con una raccolta di dati fissa e immutabile,
 allora dovresti usare una tupla.
 """
-
-
-
-
-
-
-
-
-
-
-
-
