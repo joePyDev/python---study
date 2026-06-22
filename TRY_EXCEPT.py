@@ -8,7 +8,7 @@ errori di decodifica, timeout…) e la gestisce in un unico punto.
 import sys
 
 try:
-    pass
+   y = 10 / 0
 
 except Exception as e:
     print(f"Errore {e}")

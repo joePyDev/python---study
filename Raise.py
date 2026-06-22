@@ -49,3 +49,16 @@ eta = calcola_età(2030)  # L'errore viene sollevato, va in console e il program
 print("Questo non viene mai stampato")
     
     
+#--------------------------------------------
+
+def get_city_population(populations, city):
+    try:
+        return populations[city]
+    except KeyError:
+        raise KeyError(f'City "{city}" not found in population data.')
+
+    
+city_populations = {"New York": 8336817, "Los Angeles": 3979576, "Chicago": 2679044}
+
+city_name = "New York"
+test_case2 = get_city_population(city_populations,city_name)    
