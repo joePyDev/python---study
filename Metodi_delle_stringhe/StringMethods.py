@@ -108,33 +108,28 @@ string.translate(table)
 # capitalize() Scrive in ​​maiuscolo la prima lettera di questa frase
 txt = "hello word"
 X = txt.capitalize()
-print(X)
 
 
 # casefold() converte la stringa in minuscolo
 txt = "HELLO word"
 X = txt.casefold()
-print(X)
 
 
 # center() scrive la parola indicata al centro con lo spazio indicato
 txt = "banana"
 X = txt.center(20)
-print(X)
 
 
 # count()
 # Restituisce il numero di volte in cui il valore  compare nella stringa:
 txt = "amo la frutta , in particolare le mele"
 X = txt.count("frutta")
-print(X)
 
 
 # encode89
 # Codifica la stringa in UTF-8
 txt = "il mio nome è Gio"
 X = txt.encode()
-print(X)
 
 
 # endswith89
@@ -142,7 +137,6 @@ print(X)
 # string.endswith(value, start, end)
 txt = "hello, welcome to my word"
 X = txt.endswith("word")
-print(X)
 
 
 # expandtabs()
@@ -151,14 +145,12 @@ print(X)
 # degli spazi bianchi.
 txt = "H\te\tl\to"
 X = txt.expandtabs(2)
-print(X)
 
 
 # find()
 # Restituisce l'indice (la posizione) della prima occorrenza trovata.
 txt = "benvenuti nel mio mondo"
 X = txt.find("benvenuti")
-print(X)
 
 
 # format()
@@ -169,7 +161,6 @@ print(testo.format("Alice", 25))
 # segnaposto indicizzato al positional argument
 txt = "il mio nome è {0} ho anni {1} e lavoro in {1}"
 X = txt.format("pippo", 25)
-print(X)
 
 
 # format_map()
@@ -228,43 +219,36 @@ txt = "50800"
 
 x = txt.isdigit()
 
-print(x)
-
 
 # isidentifier()#
 # Una stringa è considerata un identificatore valido se contiene
 # solo lettere alfanumeriche (a, b, c) e (0-9) o trattini bassi (_).
 txt = "Demo"
 X = txt.isidentifier()
-print(X)
 
 
 # islower()
 # restituisce True se tutti i caratteri sono minuscoli
 txt = "Ciao mondo"
 X = txt.islower()
-print(X)
 
 
 # isnumeric()
 # restituisce True se tutti i caratteri sono numerici (0-9), altrimenti False.
 txt = "12345"
 X = txt.isnumeric()
-print(X)
 
 
 # isprintable()
 # restituisce True se tutti i caratteri sono stampabili, altrimenti False.
 txt = "Hello , Are You #1"
 X = txt.isprintable()
-print(X)
 
 
 # isspace()
 #  restituisce True se tutti i caratteri di una stringa sono spazi bianchi, altrimenti False.
 txt = "    "
 X = txt.isspace()
-print(X)
 
 
 # istitle()
@@ -272,21 +256,19 @@ print(X)
 # una lettera maiuscola E il resto della parola è composto da lettere minuscole,
 txt = "Hello,And Welcome To My World"
 X = txt.istitle()
-print(X)
 
 
 # isupper()
 # restituisce True se tutti i caratteri sono maiuscoli, altrimenti False.
 txt = "HALLO WELCOME"
 X = txt.isupper()
-print(X)
 
 
 # join()
 # prende tutti gli elementi di un iterabile e li unisce in un'unica stringa.
 my_tuple = ("jon", "mary", "jane")
 X = " . ".join(my_tuple)
-print(X)  # jon . mary . jane
+# jon . mary . jane
 
 
 # ljust()
@@ -309,7 +291,6 @@ print((X))
 # rimuove tutti i caratteri iniziali (lo spazio è il carattere iniziale predefinito da rimuovere).
 txt = "    hello my Friends"
 X = txt.lstrip()
-print(X)
 
 
 # maketrans()
@@ -317,7 +298,7 @@ print(X)
 # utilizzata con il metodo per sostituire i caratteri specificati.
 txt = "Hallo sam"
 X = txt.maketrans("S", "P", "l")
-print(X)
+
 
 # translate()
 # restituisce una stringa in cui alcuni caratteri specificati
@@ -336,7 +317,6 @@ print(txt.translate(mydict))
 # cerca una stringa specificata e la suddivide in una tupla contenente tre elementi.
 txt = "potrei mangiare una mela ogni giorno"
 X = txt.partition("mela")
-print(X)
 
 
 # replace()
@@ -344,29 +324,26 @@ print(X)
 
 txt = "mi piace andare in bici"
 X = txt.replace("bici", "moto")
-print(X)
 
 
 # rfind()
 # individua l'ultima occorrenza del valore specificato.
 txt = "mi casa , su casa"
 X = txt.rfind(("casa"))
-print(X)
+
 
 txt = "mi casa , su casa"
 X = txt.rfind(("pippo"))
-print(X)
 
 
 # rindex()
 #  individua l'ultima occorrenza del valore specificato.
 txt = "mi casa , su casa"
 X = txt.rindex(("casa"))
-print(X)
+
 
 txt = "mi casa , su casa"
 X = txt.rfind(("pippo"))
-print(X)
 
 
 # rjust()
@@ -374,7 +351,6 @@ print(X)
 # specificato (lo spazio è il valore predefinito) come carattere di riempimento.
 txt = "mela"
 X = txt.rjust(15, "*")
-print(X)
 
 
 # rpartition()
@@ -382,14 +358,12 @@ print(X)
 # la suddivide in una tupla contenente tre elementi.
 txt = "potrei mangiare frutta ogni giorno, la frutta mi piace molto"
 X = txt.rpartition("frutta")
-print(X)
 
 
 # rsplit()
 # suddivide una stringa in una lista, partendo da destra.
 txt = "apple, banana, cherry"
 X = txt.rsplit(", ")  # esegui il taglio in corrispondenza di ", "
-print(X)
 
 
 # rstrip()
@@ -397,14 +371,12 @@ print(X)
 # lo spazio è il carattere finale predefinito da rimuovere.
 txt = "banana        .       "
 X = txt.rstrip()
-print(X)
 
 
 # split()
 # suddivide una stringa in una lista.
 txt = "welcome to the jungle"
 X = txt.split()
-print(X)
 
 
 # splitlines()
@@ -412,46 +384,39 @@ print(X)
 # in corrispondenza delle interruzioni di riga \n
 txt = "grazie per la musica \nhello word"
 X = txt.splitlines()
-print(X)
 
 
 # startswith()
 # metodo restituisce True se la stringa inizia con il valore specificato, altrimenti False.
 txt = "Hello word"
 X = txt.startswith("Hello")
-print(X)
 
 
 # strip()
 # rimuove tutti gli spazi bianchi iniziali e finali.
 txt = "    banana    "
 X = txt.strip()
-print(X)
 
 
 # swapcase()
 # restituisce una stringa in cui tutte le lettere maiuscole sono minuscole e viceversa.
 txt = "BuonGiorno mondo SOno MolTO ImPeGnAtO"
 X = txt.swapcase()
-print(X)
 
 
 # title()
 # restituisce una stringa in cui il primo carattere di ogni parola è maiuscolo.
 txt = "sono andato al cinema"
 X = txt.title()
-print(X)
 
 
 # upper()
 # restituisce una stringa in cui tutti i caratteri sono maiuscoli.
 txt = "sono una stringa minuscola"
 X = txt.upper()
-print(X)
 
 
 # zfill()
 # aggiunge degli zeri (0) all'inizio della stringa, fino a raggiungere la lunghezza specificata.
 txt = "50"
 X = txt.zfill(5)
-print(X)
