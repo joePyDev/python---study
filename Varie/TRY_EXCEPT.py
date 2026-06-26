@@ -5,6 +5,7 @@ errori di decodifica, timeout…) e la gestisce in un unico punto.
 
 """
 
+# -------------------------------------------
 import sys
 
 try:
@@ -23,3 +24,4 @@ else:
     print("No exceptions occurred")
 finally:
     print("Cleanup complete")
+# -------------------------------------------
