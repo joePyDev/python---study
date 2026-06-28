@@ -14,8 +14,7 @@ my_funk("1", "2", "3")
 
 # **Kwargs
 def my_function(**kid):  # con i due asterischi **kid diventa un dizionario
-
-    # cerca nel dizionario chid la chiave iname e ritorna il valore
+    # cerca nel dizionario kid la chiave iname e ritorna il valore
     print("His last name is " + kid["lname"])
 
 
